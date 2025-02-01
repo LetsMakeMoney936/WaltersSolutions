@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walter's Mobile Solutions</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #888;
+            color: #333;
+            text-align: center;
+        }
+        header {
+            background: #222;
+            color: white;
+            padding: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('motorhome-image.jpg') no-repeat center center/cover;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            font-size: 36px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+            text-align: center;
+        }
+        .hero-text {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 15px 30px;
+            border-radius: 10px;
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .description, .services, .testimonials, .contact-form, .about {
+            max-width: 90%;
+            margin: 30px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            max-width: 90%;
+            margin: auto;
+        }
+        .gallery img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 10px;
+            object-fit: cover;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        button {
+            background: #222;
+            color: white;
+            border: none;
+            padding: 12px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+            border-radius: 8px;
+            transition: 0.3s ease;
+        }
+        button:hover {
+            background: #444;
+        }
+        footer {
+            background: #222;
+            color: white;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 16px;
+        }
+        @media (max-width: 768px) {
+            .hero {
+                height: 300px;
+                font-size: 24px;
+            }
+            .hero-text {
+                padding: 10px 20px;
+            }
+            .description, .services, .testimonials, .contact-form, .about {
+                font-size: 16px;
+                padding: 15px;
+            }
+            .gallery img {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>Walter's Mobile Solutions</header>
+    <div class="hero">
+        <div class="hero-text">Your Trusted Motorhome & RV Specialist</div>
+    </div>
+    <div class="about">
+        <h2>About Us</h2>
+        <p>Walter's Mobile Solutions was founded with a passion for delivering top-notch RV and motorhome services. With over 13 years of experience, we ensure our customers receive expert care and reliable solutions for all their mobile needs.</p>
+    </div>
+    <div class="services">
+        <h2>Our Services</h2>
+        <div>✔ Mobile RV Repairs</div>
+        <div>✔ Electrical System Diagnostics & Repairs</div>
+        <div>✔ Plumbing & Water System Services</div>
+        <div>✔ HVAC Maintenance & Repairs</div>
+        <div>✔ Roof Inspections & Sealing</div>
+        <div>✔ Appliance Repairs & Installation</div>
+    </div>
+    <div class="testimonials">
+        <h2>What Our Customers Say</h2>
+        <p>"Walter’s Mobile Solutions got my RV up and running in no time! Highly recommended." - Sarah J.</p>
+        <p>"Excellent service, professional work, and very convenient. Thank you, Walter!" - Mike R.</p>
+        <p>"Reliable and knowledgeable. I wouldn't trust anyone else with my motorhome!" - Emily P.</p>
+    </div>
+    <div class="gallery">
+        <h2>Gallery</h2>
+        <img src="rv1.jpg" alt="Motorhome 1">
+        <img src="rv2.jpg" alt="Motorhome 2">
+        <img src="rv3.jpg" alt="Motorhome 3">
+        <img src="rv4.jpg" alt="Motorhome 4">
+    </div>
+    <div class="contact-form">
+        <h2>Contact Us</h2>
+        <form>
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <input type="tel" name="phone" placeholder="Your Phone Number" required>
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+    <footer>
+        &copy; 2025 Walter's Mobile Solutions | Call us: (XXX) XXX-XXXX | Designed for excellence in motorhome and RV service.
+    </footer>
+</body>
+</html>
