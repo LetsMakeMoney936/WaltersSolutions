@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Schedule a Repair - Walter's Mobile Solutions</title>
+    <title>Walter's Mobile Solutions</title>
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -25,45 +25,47 @@
             text-transform: uppercase;
             letter-spacing: 1.5px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
             width: 100%;
+            z-index: 1000;
             text-align: center;
-            position: relative;
         }
-        .home-button {
-            position: absolute;
-            left: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: #fff;
-            color: #007bff;
-            border: none;
-            padding: 10px 15px;
-            font-size: 16px;
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://cdn.pixabay.com/photo/2019/10/20/03/08/motorhome-4562603_1280.jpg') no-repeat center center/cover;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            font-size: 36px;
             font-weight: bold;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: 0.3s ease;
-            text-decoration: none;
+            color: white;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+            text-align: center;
+            width: 100%;
         }
-        .home-button:hover {
-            background: #ddd;
+        .hero-text {
+            background: rgba(0, 123, 255, 0.8);
+            padding: 15px 30px;
+            border-radius: 10px;
+            animation: fadeIn 2s ease-in-out;
         }
-        .form-container {
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .about, .services, .gallery, .map, .faq, .live-chat, .contact {
             max-width: 90%;
             margin: 30px auto;
             background: #333;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            font-size: 18px;
+            line-height: 1.6;
+            color: white;
             text-align: center;
-        }
-        input, textarea, select {
-            width: 90%;
-            padding: 10px;
-            margin: 10px 0;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
         }
         button {
             background: #007bff;
@@ -74,6 +76,8 @@
             font-size: 18px;
             border-radius: 8px;
             transition: 0.3s ease;
+            display: block;
+            margin: 20px auto;
             width: 200px;
         }
         button:hover {
@@ -88,46 +92,63 @@
             width: 100%;
             text-align: center;
         }
+        .map iframe {
+            width: 100%;
+            height: 150px;
+            border-radius: 10px;
+            border: none;
+        }
+        .call-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #28a745;
+            color: white;
+            padding: 15px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 50px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .call-button:hover {
+            background: #218838;
+        }
     </style>
 </head>
 <body>
-    <header>
-        <a href="https://letsmakemoney936.github.io/WaltersSolutions/" class="home-button">Return Home</a>
-        Schedule a Repair
-    </header>
-    
-    <div class="form-container">
-        <h2>Request a Repair Service</h2>
-        <form action="submit_repair.php" method="POST">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <input type="tel" name="phone" placeholder="Your Phone Number" required>
-            <label for="service"></label>
-            <select name="service" required>
-                <option value="" disabled selected>Select a Service:</option>
-                <option value="RV Inspection">RV Inspection</option>
-                <option value="Appliance Repair">Appliance Repair</option>
-                <option value="Electrical System Repair">Electrical System Repair</option>
-                <option value="Plumbing Repair">Plumbing Repair</option>
-                <option value="Roof Leak Repair">Roof Leak Repair</option>
-                <option value="HVAC Maintenance">HVAC Maintenance</option>
-                <option value="Generator Repair">Generator Repair</option>
-                <option value="Slide-Out System Repair">Slide-Out System Repair</option>
-            </select>
-            <textarea name="issue" placeholder="Describe the issue" rows="4" required></textarea>
-            <label for="urgency"></label>
-            <select name="urgency" required>
-                <option value="" disabled selected>How urgent is the repair?</option>
-                <option value="Low">Low</option>
-                <option value="Medium">Medium</option>
-                <option value="High">High</option>
-            </select>
-            <button type="submit">Submit Request</button>
-        </form>
+    <header>Walter's Mobile Solutions</header>
+    <div class="hero">
+        <div class="hero-text">Your Trusted Motorhome & RV Specialist</div>
     </div>
-    
+    <div class="about">
+        <h2>About Us</h2>
+        <p>Walter's Mobile Solutions was founded with a passion for delivering top-notch RV and motorhome services. With over 13 years of experience, we ensure our customers receive expert care and reliable solutions for all their mobile needs.</p>
+    </div>
+    <div class="services">
+        <h2>RV and Motorhome Repair Services</h2>
+        <ul>
+            <li>RV and Motorhome Preventive Maintenance</li>
+            <li>Routine Maintenance</li>
+            <li>Electrical System Repairs</li>
+            <li>Plumbing and Water System Repairs</li>
+            <li>Roof Leak Detection and Repairs</li>
+            <li>Appliance Maintenance and Installation</li>
+            <li>HVAC System Troubleshooting</li>
+            <li>Custom Modifications and Upgrades</li>
+        </ul>
+    </div>
+    <div class="map">
+        <h2>Our Service Area</h2>
+        <iframe src="https://www.google.com/maps?q=Nacogdoches,+TX+75961&z=10&output=embed" allowfullscreen></iframe>
+    </div>
+    <button onclick="location.href='https://letsmakemoney936.github.io/WaltersSolutions/schedule.html'">Schedule a Repair</button>
+    <a href="tel:+19365536813" class="call-button">📞 Call Us</a>
     <footer>
-        &copy; 2025 Walter's Mobile Solutions | Call us: (936) 553-6813
+        &copy; 2025 Walter's Mobile Solutions | Call us: (936) 553-6813 | Designed for excellence in motorhome and RV service.
     </footer>
 </body>
 </html>
