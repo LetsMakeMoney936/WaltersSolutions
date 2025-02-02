@@ -1,1 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walter's Mobile Solutions</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #444, #222);
+            color: #eee;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            background: #007bff;
+            color: white;
+            padding: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            text-align: center;
+        }
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://cdn.pixabay.com/photo/2019/10/20/03/08/motorhome-4562603_1280.jpg') no-repeat center center/cover;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            font-size: 36px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+            text-align: center;
+            width: 100%;
+        }
+        .hero-text {
+            background: rgba(0, 123, 255, 0.8);
+            padding: 15px 30px;
+            border-radius: 10px;
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .about, .services, .gallery, .map, .faq, .live-chat, .contact {
+            max-width: 90%;
+            margin: 30px auto;
+            background: #333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            font-size: 18px;
+            line-height: 1.6;
+            color: white;
+            text-align: center;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 12px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 8px;
+            transition: 0.3s ease;
+            display: block;
+            margin: 20px auto;
+            width: 200px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        footer {
+            background: #222;
+            color: white;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 16px;
+            width: 100%;
+            text-align: center;
+        }
+        .map iframe {
+            width: 100%;
+            height: 150px;
+            border-radius: 10px;
+            border: none;
+        }
+        .call-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #28a745;
+            color: white;
+            padding: 15px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 50px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .call-button:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+    <header>Walter's Mobile Solutions</header>
+    <div class="hero">
+        <div class="hero-text">Your Trusted Motorhome & RV Specialist</div>
+    </div>
+    <div class="about">
+        <h2>About Us</h2>
+        <p>Walter's Mobile Solutions was founded with a passion for delivering top-notch RV and motorhome services. With over 13 years of experience, we ensure our customers receive expert care and reliable solutions for all their mobile needs.</p>
+    </div>
+    <div class="services">
+        <h2>RV and Motorhome Repair Services</h2>
+        <ul>
+            <li>RV and Motorhome Preventive Maintenance</li>
+            <li>Routine Maintenance</li>
+            <li>Electrical System Repairs</li>
+            <li>Plumbing and Water System Repairs</li>
+            <li>Roof Leak Detection and Repairs</li>
+            <li>Appliance Maintenance and Installation</li>
+            <li>HVAC System Troubleshooting</li>
+            <li>Custom Modifications and Upgrades</li>
+        </ul>
+    </div>
+    <div class="map">
+        <h2>Our Service Area</h2>
+        <iframe src="https://www.google.com/maps?q=Nacogdoches,+TX+75961&z=10&output=embed" allowfullscreen></iframe>
+    </div>
+    <button onclick="window.location.href='schedule.html'">Schedule a Repair</button>
+    <a href="tel:+19365536813" class="call-button">📞 Call Us</a>
+    <footer>
+        &copy; 2025 Walter's Mobile Solutions | Call us: (936) 553-6813 | Designed for excellence in motorhome and RV service.
+    </footer>
+</body>
+</html>
 
