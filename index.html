@@ -50,7 +50,7 @@
             from { opacity: 0; }
             to { opacity: 1; }
         }
-        .description, .services, .testimonials, .about, .map {
+        .description, .services, .testimonials, .about, .map, .faq, .gallery, .live-chat, .contact {
             max-width: 90%;
             margin: 30px auto;
             background: white;
@@ -98,6 +98,25 @@
             border-radius: 10px;
             border: none;
         }
+        .call-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #28a745;
+            color: white;
+            padding: 15px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 50px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .call-button:hover {
+            background: #218838;
+        }
     </style>
 </head>
 <body>
@@ -107,42 +126,35 @@
     </div>
     <div class="about">
         <h2>About Us</h2>
-        <p>I've been in the industry for 13 years, making it easier than ever to get a hold of me. I recently started this business in hopes of thriving in this world, and I'm dedicated to making my customers happy. I take pride in delivering reliable, professional, and honest service for all your RV and motorhome needs.</p>
+        <p>Walter's Mobile Solutions was founded with a passion for delivering top-notch RV and motorhome services. With over 13 years of experience, we ensure our customers receive expert care and reliable solutions for all their mobile needs.</p>
+    </div>
+    <div class="gallery">
+        <h2>Our Work</h2>
+        <p>A showcase of our recent repairs and RV projects.</p>
     </div>
     <div class="map">
         <h2>Our Service Area</h2>
-        <iframe src="https://www.google.com/maps?q=Douglass,+TX&z=10&output=embed" allowfullscreen></iframe>
+        <iframe src="https://www.google.com/maps?q=75961&z=10&output=embed" allowfullscreen></iframe>
     </div>
-    <div class="services">
-        <h2>Our Services</h2>
-        <div>✔ Mobile RV Repairs</div>
-        <div>✔ Electrical System Diagnostics & Repairs</div>
-        <div>✔ Plumbing & Water System Services</div>
-        <div>✔ HVAC Maintenance & Repairs</div>
-        <div>✔ Roof Inspections & Sealing</div>
-        <div>✔ Appliance Repairs & Installation</div>
+    <div class="faq">
+        <h2>Frequently Asked Questions</h2>
+        <p>Common questions and answers about our services.</p>
     </div>
-    <div class="testimonials">
-        <h2>What Our Customers Say</h2>
-        <p>"Walter’s Mobile Solutions got my RV up and running in no time! Highly recommended." - Sarah J.</p>
-        <p>"Excellent service, professional work, and very convenient. Thank you, Walter!" - Mike R.</p>
-        <p>"Reliable and knowledgeable. I wouldn't trust anyone else with my motorhome!" - Emily P.</p>
+    <div class="live-chat">
+        <h2>Live Chat Support</h2>
+        <p>Chat with us for quick questions and scheduling.</p>
     </div>
-    <div class="contact-form">
+    <div class="contact">
         <h2>Schedule a Repair</h2>
-        <form>
+        <form action="/submit-contact-form" method="post">
             <input type="text" name="name" placeholder="Your Name" required>
-            <input type="tel" name="phone" placeholder="Your Phone Number" required>
-            <textarea name="issue" rows="4" placeholder="Describe the issue" required></textarea>
-            <label for="urgency">How urgent is the issue?</label>
-            <select name="urgency" id="urgency" required>
-                <option value="low">Not Urgent</option>
-                <option value="medium">Somewhat Urgent</option>
-                <option value="high">Very Urgent</option>
-            </select>
-            <button type="submit">Request Repair</button>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <input type="text" name="phone" placeholder="Your Phone Number" required>
+            <textarea name="message" placeholder="What is your issue and how urgent is it?" rows="5" required></textarea>
+            <button type="submit">Send Request</button>
         </form>
     </div>
+    <a href="tel:+19365536813" class="call-button">📞 Call Us</a>
     <footer>
         &copy; 2025 Walter's Mobile Solutions | Call us: (936) 553-6813 | Designed for excellence in motorhome and RV service.
     </footer>
