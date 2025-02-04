@@ -164,6 +164,10 @@
                 <option value="Slide-Out System Repair">Slide-Out System Repair</option>
             </select>
 
+            <label for="details">Brief Description of Issue:</label>
+            <textarea id="details" name="details" required maxlength="500"></textarea>
+            <p id="detailsCounter">0/500</p>
+
             <label for="urgency">How urgent is the repair?</label>
             <select id="urgency" name="urgency" required onchange="updateUrgencyColor()">
                 <option value="Low">Low</option>
@@ -172,9 +176,6 @@
             </select>
 
             <p id="costEstimate">Estimated Cost: $50.00</p>
-
-            <label for="photo">Upload a Photo (optional):</label>
-            <input type="file" id="photo" name="photo" accept="image/*">
 
             <button type="submit">Submit Request</button>
             <button type="button" class="go-back" onclick="window.location.href='index.html'">Go Back</button>
