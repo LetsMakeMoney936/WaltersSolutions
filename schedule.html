@@ -38,7 +38,7 @@
             margin: 15px 0 5px;
             text-align: left;
         }
-        select, input[type="text"], input[type="tel"], textarea {
+        select, input[type="text"], input[type="tel"], textarea, input[type="file"] {
             width: 100%;
             padding: 10px;
             border-radius: 5px;
@@ -61,6 +61,13 @@
         button:hover {
             background: #0056b3;
         }
+        .go-back {
+            margin-top: 10px;
+            background: #6c757d;
+        }
+        .go-back:hover {
+            background: #5a6268;
+        }
         footer {
             background: #222;
             color: white;
@@ -79,6 +86,11 @@
         }
         #urgency {
             font-weight: bold;
+        }
+        #costEstimate {
+            font-weight: bold;
+            margin-top: 10px;
+            color: #fff;
         }
     </style>
     <script>
@@ -110,22 +122,22 @@
                 urgencySelect.style.backgroundColor = 'red';
                 urgencySelect.style.color = 'white';
             }
+            updateCostEstimate();
         }
 
-        function updateDetailsCounter() {
-            let detailsInput = document.getElementById('details');
-            let counter = document.getElementById('detailsCounter');
-            let maxLength = 500;
-            counter.textContent = detailsInput.value.length + '/' + maxLength;
-        }
+        function updateCostEstimate() {
+            let service = document.getElementById('service').value;
+            let urgency = document.getElementById('urgency').value;
+            let cost = 50;
 
-        function autoCapitalizeName() {
-            let nameInput = document.getElementById('name');
-            nameInput.value = nameInput.value.replace(/\b\w/g, char => char.toUpperCase());
-        }
+            if (service.includes('Inspection')) cost = 75;
+            else if (service.includes('Repair')) cost = 150;
+            else if (service.includes('Maintenance')) cost = 100;
 
-        window.onload = function() {
-            updateUrgencyColor();
+            if (urgency === 'Medium') cost *= 1.2;
+            else if (urgency === 'High') cost *= 1.5;
+
+            document.getElementById('costEstimate').textContent = "Estimated Cost: $" + cost.toFixed(2);
         }
     </script>
 </head>
@@ -133,15 +145,15 @@
     <header>Schedule a Repair</header>
     <div class="content">
         <h2>Request a Repair Service</h2>
-        <form action="https://formspree.io/f/your-form-id" method="POST">
+        <form action="https://formspree.io/f/your-form-id" method="POST" enctype="multipart/form-data">
             <label for="name">Your Name:</label>
-            <input type="text" id="name" name="name" required oninput="autoCapitalizeName()">
+            <input type="text" id="name" name="name" required>
 
             <label for="phone">Your Phone Number:</label>
             <input type="tel" id="phone" name="phone" placeholder="(555) 555-5555" required oninput="formatPhoneNumber(this)">
 
             <label for="service">Select a Service:</label>
-            <select id="service" name="service" required>
+            <select id="service" name="service" required onchange="updateCostEstimate()">
                 <option value="RV Inspection">RV Inspection</option>
                 <option value="Appliance Repair">Appliance Repair</option>
                 <option value="Electrical System Repair">Electrical System Repair</option>
@@ -152,10 +164,6 @@
                 <option value="Slide-Out System Repair">Slide-Out System Repair</option>
             </select>
 
-            <label for="details">Additional Details:</label>
-            <textarea id="details" name="details" rows="4" maxlength="500" placeholder="Provide any additional information here..." oninput="updateDetailsCounter()"></textarea>
-            <div id="detailsCounter">0/500</div>
-
             <label for="urgency">How urgent is the repair?</label>
             <select id="urgency" name="urgency" required onchange="updateUrgencyColor()">
                 <option value="Low">Low</option>
@@ -163,7 +171,13 @@
                 <option value="High">High</option>
             </select>
 
+            <p id="costEstimate">Estimated Cost: $50.00</p>
+
+            <label for="photo">Upload a Photo (optional):</label>
+            <input type="file" id="photo" name="photo" accept="image/*">
+
             <button type="submit">Submit Request</button>
+            <button type="button" class="go-back" onclick="window.location.href='index.html'">Go Back</button>
         </form>
     </div>
     <footer>
