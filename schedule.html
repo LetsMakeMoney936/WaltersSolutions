@@ -128,14 +128,14 @@
         function updateCostEstimate() {
             let service = document.getElementById('service').value;
             let urgency = document.getElementById('urgency').value;
-            let cost = 50;
+            let cost = 90000;
 
-            if (service.includes('Inspection')) cost = 75;
-            else if (service.includes('Repair')) cost = 150;
-            else if (service.includes('Maintenance')) cost = 100;
+            if (service.includes('Inspection')) cost = 80;
+            else if (service.includes('Repair')) cost = 120;
+            else if (service.includes('Maintenance')) cost = 120;
 
             if (urgency === 'Medium') cost *= 1.2;
-            else if (urgency === 'High') cost *= 1.5;
+            else if (urgency === 'High') cost *= 1.4;
 
             document.getElementById('costEstimate').textContent = "Estimated Cost: $" + cost.toFixed(2);
         }
