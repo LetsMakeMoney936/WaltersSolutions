@@ -1,1 +1,131 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walter's Mobile Solutions</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://letsmakemoney936.github.io/WaltersSolutions/Untilted.webp') no-repeat center center fixed;
+            background-size: cover;
+            color: #eee;
+            text-align: center;
+        }
+        header {
+            background: linear-gradient(to bottom, #555, #333);
+            color: white;
+            padding: 20px;
+            font-size: 28px;
+            font-weight: bolder;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .content {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(51, 51, 51, 0.85);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            font-weight: bolder;
+            text-align: center;
+        }
+        footer {
+            background: #222;
+            color: white;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 16px;
+            font-weight: bolder;
+            text-align: center;
+        }
+        .call-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #28a745;
+            color: white;
+            padding: 15px 20px;
+            font-size: 18px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            font-weight: bolder;
+        }
+        .call-button:hover {
+            background: #218838;
+        }
+        .services-list {
+            text-align: center;
+            padding: 20px;
+        }
+        .services-list h3 {
+            color: #007bff;
+        }
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bolder;
+            border-radius: 5px;
+        }
+        .back-button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>Walter's Mobile Solutions</header>
+    <div class="content">
+        <h2>Our Services</h2>
+        <div class="services-list">
+            <h3>Roof Repair & Maintenance</h3>
+            <p>Ensuring your roof is in top condition is essential to prevent leaks and water damage. Services include patching, resealing, and replacing damaged roofing materials.</p>
+            <h3>Plumbing Repair</h3>
+            <p>Repairs to the water system, including pipes, tanks, faucets, water heaters, and toilets. Common issues include leaks, clogged drains, or faulty water pumps.</p>
+            <h3>Electrical System Repairs</h3>
+            <p>Troubleshooting and fixing issues with the electrical system, such as power outlets, batteries, fuses, or wiring, ensuring everything is safely functional.</p>
+            <h3>AC & Heating Repairs</h3>
+            <p>Repairing or replacing air conditioning units and heaters to ensure proper temperature control. This service also includes maintenance on the ventilation system.</p>
+            <h3>Refrigerator & Appliance Repairs</h3>
+            <p>Repairing or replacing malfunctioning appliances like refrigerators, stoves, and microwaves.</p>
+            <h3>Chassis Repair</h3>
+            <p>Repair an issue with the chassis like bent frame, broken axle hangers, crossmembers, outriggers, A-Frame or Pin box.</p>
+            <h3>Slide-Out Repair</h3>
+            <p>Fixing issues with slide-outs, which can include malfunctioning motors, seals, or track misalignment.</p>
+            <h3>Water Heater & Furnace Repair</h3>
+            <p>Repairing or replacing malfunctioning water heaters and furnaces to keep you comfortable all year long. This includes fixing issues with gas or electric systems.</p>
+            <h3>Seal & Window Replacement</h3>
+            <p>Repairing or replacing window seals and glass to prevent leaks and maintain insulation. This also includes re-sealing doors and windows to improve energy efficiency.</p>
+            <h3>Generator Repair</h3>
+            <p>Maintaining and repairing generators, ensuring that the power supply remains reliable when you're off the grid. Services include oil changes, filter replacements, and engine repairs.</p>
+            <h3>Exterior Body & Paint Repair</h3>
+            <p>Fixing dents, scratches, and other cosmetic damage to the exterior. </p>
+            <h3>Awning Repair & Replacement</h3>
+            <p>Repairing or replacing broken or damaged awnings, including fabric or motor replacements. This service ensures your awning is functioning properly for shade and shelter.</p>
+            <h3>Flooring & Interior Repair</h3>
+            <p>Services to repair or replace damaged flooring, upholstery, cabinets, and other interior components. This service includes restoring damaged walls or structures in the living area.</p>
+            <h3>Battery & Charging System Service</h3>
+            <p>Ensuring that the batteries are functioning properly, including replacing old batteries and repairing the charging system to maintain power for off-grid living.</p>
+            <h3>Tow System & Hitch Repair</h3>
+            <p>Repairing or installing towing systems and hitches to ensure safe towing. This includes replacing hitches, brakes, and wiring for trailers.</p>
+            <h3>Vent & Exhaust Repair</h3>
+            <p>Repairing the ventilation system, including fixing exhaust fans, vent covers, and ensuring proper airflow throughout the vehicle.</p>
+        </div>
+        <a href="index.html" class="back-button">Go Back</a>
+    </div>
+    <footer>
+        &copy; 2025 Walter's Mobile Solutions | Call us: (936) 553-6813
+    </footer>
+    <a href="tel:9365536813" class="call-button">Call Now</a>
+</body>
+</html>
