@@ -13,7 +13,7 @@
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            padding-top: 150px; /* Adjusted for wider/taller header logo */
+            padding-top: 150px;
             background: url('https://letsmakemoney936.github.io/WaltersSolutions/Untilted.webp') no-repeat center center fixed;
             background-size: cover;
             color: #eee;
@@ -137,7 +137,7 @@
                 const scrollY = window.scrollY;
 
                 // Fade out between 0 and 150px
-                let opacity = 1 - scrollY / 150;
+                let opacity = 1 - scrollY / 50;
                 if (opacity < 0) opacity = 0;
                 if (opacity > 1) opacity = 1;
 
