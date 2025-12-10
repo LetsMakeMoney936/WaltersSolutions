@@ -4,19 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Walter's Mobile Solutions</title>
+
     <style>
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            padding-top: 180px; /* Adjusted for taller full-width banner */
+            padding-top: 120px; /* Adjusted for shorter header logo */
             background: url('https://letsmakemoney936.github.io/WaltersSolutions/Untilted.webp') no-repeat center center fixed;
             background-size: cover;
             color: #eee;
             text-align: center;
         }
 
-        /* Full-width header banner */
+        /* Full-width banner header */
         header {
             background: transparent;
             padding: 0;
@@ -30,6 +31,8 @@
         .header-logo {
             width: 100%;
             height: auto;
+            max-height: 180px;   /* Reduced height (about half as tall as before) */
+            object-fit: contain; 
             display: block;
         }
 
@@ -140,7 +143,7 @@
 
 <body>
 
-    <!-- Full-width banner header -->
+    <!-- Full-width shorter banner header -->
     <header>
         <img src="https://letsmakemoney936.github.io/WaltersSolutions/Logo2.webp"
              alt="Walter's Mobile Solutions Logo"
@@ -175,6 +178,7 @@
     <div class="service-area">
         <h3>Service Area</h3>
         <p>Nacogdoches and surrounding areas within 100 miles.</p>
+
         <iframe
             src="https://www.google.com/maps?q=Nacogdoches,TX&output=embed"
             width="100%" height="300"
