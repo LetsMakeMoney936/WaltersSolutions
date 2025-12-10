@@ -13,7 +13,7 @@
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            padding-top: 150px; /* for header logo space */
+            padding-top: 150px; /* space for header logo */
             background: url('https://letsmakemoney936.github.io/WaltersSolutions/Untilted.webp') no-repeat center center;
             background-size: cover;
             background-attachment: scroll;
@@ -21,7 +21,7 @@
             text-align: center;
         }
 
-        /* Full-width banner header */
+        /* Header logo */
         header {
             background: transparent;
             padding: 0;
@@ -42,12 +42,15 @@
             transition: opacity 0.35s ease-out;
         }
 
+        /* NEW service section header image */
         .services-title {
             width: 100%;
             height: auto;
             margin-bottom: 20px;
+            margin-top: -10px;
         }
 
+        /* Call button */
         .call-button {
             position: fixed;
             bottom: 20px;
@@ -71,6 +74,7 @@
             transform: scale(1.1);
         }
 
+        /* Content blocks */
         .content, .service-area, .services {
             max-width: 900px;
             margin: 60px auto 20px;
@@ -137,33 +141,26 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
 
-            /* Fade header logo on scroll – fast (50px) */
+            /* Fade header logo quickly */
             const headerLogo = document.querySelector('.header-logo');
 
             if (headerLogo) {
                 window.addEventListener('scroll', () => {
                     const scrollY = window.scrollY;
-
                     let opacity = 1 - scrollY / 50;
                     if (opacity < 0) opacity = 0;
-                    if (opacity > 1) opacity = 1;
-
                     headerLogo.style.opacity = opacity;
                 });
             }
 
-            /* Accordion behavior for service cards */
+            /* Accordion service cards */
             const cards = document.querySelectorAll('.service-card');
 
             cards.forEach(card => {
                 card.addEventListener('click', () => {
                     const isActive = card.classList.contains('active');
-
                     cards.forEach(c => c.classList.remove('active'));
-
-                    if (!isActive) {
-                        card.classList.add('active');
-                    }
+                    if (!isActive) card.classList.add('active');
                 });
             });
 
@@ -173,19 +170,39 @@
 
 <body>
 
-    <!-- Full-width header logo -->
+    <!-- Header logo -->
     <header>
         <img src="https://letsmakemoney936.github.io/WaltersSolutions/Logo2.webp"
              alt="Walter's Mobile Solutions Logo"
              class="header-logo">
     </header>
 
-    <!-- NEW full-width services banner -->
-    <img src="https://letsmakemoney936.github.io/WaltersSolutions/services.png"
-         alt="Our Services"
-         class="services-title">
+    <!-- SERVICE AREA MAP -->
+    <div class="service-area">
+        <h3>Service Area</h3>
+        <p>Nacogdoches and surrounding areas within 100 miles.</p>
+        <iframe
+            src="https://www.google.com/maps?q=Nacogdoches,TX&output=embed"
+            width="100%" height="300"
+            style="border:0; border-radius: 10px;"
+            allowfullscreen loading="lazy">
+        </iframe>
+    </div>
 
+    <!-- INTRO TEXT -->
+    <div class="content">
+        <h2>Your Trusted Motorhome & RV Specialist</h2>
+        <p>With 13 years in the industry, I’ve decided to start this business to thrive and provide the best service possible.
+        Born and raised in the heart of the RV world, Elkhart, IN. I worked for Lippert and Forest River, from building frames 
+        to building the roof and everything in between. Let Walter's Mobile Solutions be your trusted partner in keeping your RV reliable.</p>
+    </div>
+
+    <!-- SERVICES SECTION (Our Services now here as header) -->
     <div class="services">
+
+        <!-- NEW Our Services header inside the section -->
+        <img src="services.png" alt="Our Services" class="services-title">
+
         <div class="services-container">
             <div class="service-card"><li>Roof Repair & Sealing</li><div class="service-desc">Expert sealing and repair for roof leaks.</div></div>
             <div class="service-card"><li>Electrical System Troubleshooting</li><div class="service-desc">Diagnosing and fixing electrical issues.</div></div>
@@ -200,31 +217,12 @@
 
         <button onclick="location.href='Services.html'">View All Services</button>
         <button onclick="location.href='schedule.html'">Schedule Repair</button>
-    </div>
 
-    <div class="service-area">
-        <h3>Service Area</h3>
-        <p>Nacogdoches and surrounding areas within 100 miles.</p>
-
-        <iframe
-            src="https://www.google.com/maps?q=Nacogdoches,TX&output=embed"
-            width="100%" height="300"
-            style="border:0; border-radius: 10px;"
-            allowfullscreen="" loading="lazy">
-        </iframe>
-    </div>
-
-    <!-- Intro text moved to bottom -->
-    <div class="content">
-        <h2>Your Trusted Motorhome & RV Specialist</h2>
-        <p>With 13 years in the industry, I’ve decided to start this business to thrive and provide the best service possible.
-        Born and raised in the heart of the RV world, Elkhart, IN. I worked for Lippert and Forest River, from building frames 
-        to building the roof and everything in between. Let Walter's Mobile Solutions be your trusted partner in keeping your RV reliable.</p>
     </div>
 
     <footer>
         <p>&copy; 2025 Walter's Mobile Solutions | Call us:
-            <a href="tel:9365536813" style="color: white; text-decoration: none;">(936) 553-6813</a>
+            <a href="tel:9365536813" style="color:white;text-decoration:none;">(936) 553-6813</a>
         </p>
     </footer>
 
