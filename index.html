@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Walter's Mobile Solutions</title>
 
-    <!-- Favicon support -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
 
     <style>
@@ -13,13 +13,14 @@
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            padding-top: 120px;
+            padding-top: 150px; /* Adjusted for wider/taller header logo */
             background: url('https://letsmakemoney936.github.io/WaltersSolutions/Untilted.webp') no-repeat center center fixed;
             background-size: cover;
             color: #eee;
             text-align: center;
         }
 
+        /* Full-width banner header */
         header {
             background: transparent;
             padding: 0;
@@ -33,11 +34,11 @@
         .header-logo {
             width: 100%;
             height: auto;
-            max-height: 180px;
+            max-height: 240px;   /* Taller => Appears wider */
             object-fit: contain;
             display: block;
             opacity: 1;
-            transition: opacity 0.5s;
+            transition: opacity 0.35s ease-out; /* Fade animation */
         }
 
         .call-button {
@@ -129,20 +130,21 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
 
-            // Fade header logo on scroll
+            /* Fade header logo faster on scroll */
             const headerLogo = document.querySelector('.header-logo');
 
             window.addEventListener('scroll', () => {
                 const scrollY = window.scrollY;
 
-                let opacity = 1 - scrollY / 250;
+                // Fade out between 0 and 150px
+                let opacity = 1 - scrollY / 150;
                 if (opacity < 0) opacity = 0;
                 if (opacity > 1) opacity = 1;
 
                 headerLogo.style.opacity = opacity;
             });
 
-            // Expandable service cards
+            /* Expandable service cards */
             const cards = document.querySelectorAll('.service-card');
             cards.forEach(card => {
                 card.addEventListener('click', () => {
@@ -156,6 +158,7 @@
 
 <body>
 
+    <!-- Full-width header logo -->
     <header>
         <img src="https://letsmakemoney936.github.io/WaltersSolutions/Logo2.webp"
              alt="Walter's Mobile Solutions Logo"
@@ -190,13 +193,19 @@
     <div class="service-area">
         <h3>Service Area</h3>
         <p>Nacogdoches and surrounding areas within 100 miles.</p>
-        <iframe src="https://www.google.com/maps?q=Nacogdoches,TX&output=embed" width="100%" height="300"
-            style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy"></iframe>
+
+        <iframe
+            src="https://www.google.com/maps?q=Nacogdoches,TX&output=embed"
+            width="100%" height="300"
+            style="border:0; border-radius: 10px;"
+            allowfullscreen="" loading="lazy">
+        </iframe>
     </div>
 
     <footer>
         <p>&copy; 2025 Walter's Mobile Solutions | Call us:
-            <a href="tel:9365536813" style="color: white; text-decoration: none;">(936) 553-6813</a></p>
+            <a href="tel:9365536813" style="color: white; text-decoration: none;">(936) 553-6813</a>
+        </p>
     </footer>
 
     <a href="tel:9365536813" class="call-button">📞 Call Now</a>
