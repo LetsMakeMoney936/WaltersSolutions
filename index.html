@@ -1,1 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walter's Mobile Solutions</title>
 
+    <!-- Favicon support -->
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            padding-top: 120px;
+            background: url('https://letsmakemoney936.github.io/WaltersSolutions/Untilted.webp') no-repeat center center fixed;
+            background-size: cover;
+            color: #eee;
+            text-align: center;
+        }
+
+        header {
+            background: transparent;
+            padding: 0;
+            margin: 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .header-logo {
+            width: 100%;
+            height: auto;
+            max-height: 180px;
+            object-fit: contain;
+            display: block;
+            opacity: 1;
+            transition: opacity 0.5s;
+        }
+
+        .call-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #28a745;
+            color: white;
+            padding: 15px 20px;
+            font-size: 18px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .call-button:hover {
+            background: #218838;
+            transform: scale(1.1);
+        }
+
+        .content, .service-area, .services {
+            max-width: 900px;
+            margin: 60px auto 20px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            padding: 20px 0;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .service-desc {
+            display: none;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #ddd;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 8px;
+            border-radius: 5px;
+        }
+
+        .service-card.active .service-desc {
+            display: block;
+        }
+
+        button {
+            background: #002f6c;
+            color: black;
+            border: none;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            margin: 10px;
+        }
+
+        button:hover {
+            background: #001f4d;
+            transform: scale(1.05);
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            // Fade header logo on scroll
+            const headerLogo = document.querySelector('.header-logo');
+
+            window.addEventListener('scroll', () => {
+                const scrollY = window.scrollY;
+
+                let opacity = 1 - scrollY / 250;
+                if (opacity < 0) opacity = 0;
+                if (opacity > 1) opacity = 1;
+
+                headerLogo.style.opacity = opacity;
+            });
+
+            // Expandable service cards
+            const cards = document.querySelectorAll('.service-card');
+            cards.forEach(card => {
+                card.addEventListener('click', () => {
+                    card.classList.toggle('active');
+                });
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+
+    <header>
+        <img src="https://letsmakemoney936.github.io/WaltersSolutions/Logo2.webp"
+             alt="Walter's Mobile Solutions Logo"
+             class="header-logo">
+    </header>
+
+    <div class="content">
+        <h2>Your Trusted Motorhome & RV Specialist</h2>
+        <p>With 13 years in the industry, I’ve decided to start this business to thrive and provide the best service possible.
+        Born and raised in the heart of the RV world, Elkhart, IN. I worked for Lippert and Forest River, from building frames 
+        to building the roof and everything in between. Let Walter's Mobile Solutions be your trusted partner in keeping your RV reliable.</p>
+    </div>
+
+    <div class="services">
+        <h3>Our Services</h3>
+        <div class="services-container">
+            <div class="service-card"><li>Roof Repair & Sealing</li><div class="service-desc">Expert sealing and repair for roof leaks.</div></div>
+            <div class="service-card"><li>Electrical System Troubleshooting</li><div class="service-desc">Diagnosing and fixing electrical issues.</div></div>
+            <div class="service-card"><li>Plumbing Repairs & Water System Maintenance</li><div class="service-desc">Fixing leaks and maintaining water systems.</div></div>
+            <div class="service-card"><li>Slide-Out Repairs & Adjustments</li><div class="service-desc">Adjusting and repairing slide-outs for smooth operation.</div></div>
+            <div class="service-card"><li>Appliance Repairs</li><div class="service-desc">Repairing and maintaining appliances.</div></div>
+            <div class="service-card"><li>Brake & Suspension</li><div class="service-desc">Check for abnormal wear and tear/Repair/Maintain.</div></div>
+            <div class="service-card"><li>Interior & Exterior Repairs</li><div class="service-desc">Interior and exterior damage repairs.</div></div>
+            <div class="service-card"><li>Battery & Charging System Maintenance</li><div class="service-desc">Battery replacement and charging system checks.</div></div>
+            <div class="service-card"><li>Leak Detection & Prevention</li><div class="service-desc">Finding and preventing leaks.</div></div>
+        </div>
+
+        <button onclick="location.href='Services.html'">View All Services</button>
+        <button onclick="location.href='schedule.html'">Schedule Repair</button>
+    </div>
+
+    <div class="service-area">
+        <h3>Service Area</h3>
+        <p>Nacogdoches and surrounding areas within 100 miles.</p>
+        <iframe src="https://www.google.com/maps?q=Nacogdoches,TX&output=embed" width="100%" height="300"
+            style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Walter's Mobile Solutions | Call us:
+            <a href="tel:9365536813" style="color: white; text-decoration: none;">(936) 553-6813</a></p>
+    </footer>
+
+    <a href="tel:9365536813" class="call-button">📞 Call Now</a>
+
+</body>
+</html>
