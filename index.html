@@ -31,9 +31,11 @@
         .header-logo {
             width: 100%;
             height: auto;
-            max-height: 180px;   /* Reduced height (about half as tall as before) */
-            object-fit: contain; 
+            max-height: 180px;   /* Reduced height */
+            object-fit: contain;
             display: block;
+            opacity: 1;                 /* fully visible at top */
+            transition: opacity 0.5s;   /* smooth fade effect */
         }
 
         .call-button {
@@ -131,6 +133,23 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            // Fade header logo on scroll
+            const headerLogo = document.querySelector('.header-logo');
+
+            if (headerLogo) {
+                window.addEventListener('scroll', () => {
+                    const scrollY = window.scrollY;
+
+                    // Fade out between 0 and 250px scroll
+                    let opacity = 1 - scrollY / 250;
+                    if (opacity < 0) opacity = 0;
+                    if (opacity > 1) opacity = 1;
+
+                    headerLogo.style.opacity = opacity;
+                });
+            }
+
+            // Enable clicking service cards to show their descriptions
             const cards = document.querySelectorAll('.service-card');
             cards.forEach(card => {
                 card.addEventListener('click', () => {
