@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Walter's Mobile Solutions</title>
-
-    <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
 
     <style>
@@ -14,8 +12,10 @@
             margin: 0;
             padding: 0;
             padding-top: 150px; /* for header logo space */
-            background: url('https://letsmakemoney936.github.io/WaltersSolutions/Untilted.webp') no-repeat center center fixed;
+            /* Removed "fixed" to stop background jumping */
+            background: url('https://letsmakemoney936.github.io/WaltersSolutions/Untilted.webp') no-repeat center center;
             background-size: cover;
+            background-attachment: scroll;
             color: #eee;
             text-align: center;
         }
@@ -135,7 +135,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
 
-            /* Fade header logo on scroll – VERY fast (50px) */
+            /* Fade header logo on scroll – fast (50px) */
             const headerLogo = document.querySelector('.header-logo');
 
             if (headerLogo) {
@@ -173,20 +173,11 @@
 </head>
 
 <body>
-
-    <!-- Full-width header logo -->
     <header>
         <img src="https://letsmakemoney936.github.io/WaltersSolutions/Logo2.webp"
              alt="Walter's Mobile Solutions Logo"
              class="header-logo">
     </header>
-
-    <div class="content">
-        <h2>Your Trusted Motorhome & RV Specialist</h2>
-        <p>With 13 years in the industry, I’ve decided to start this business to thrive and provide the best service possible.
-        Born and raised in the heart of the RV world, Elkhart, IN. I worked for Lippert and Forest River, from building frames 
-        to building the roof and everything in between. Let Walter's Mobile Solutions be your trusted partner in keeping your RV reliable.</p>
-    </div>
 
     <div class="services">
         <h3>Our Services</h3>
@@ -216,6 +207,12 @@
             style="border:0; border-radius: 10px;"
             allowfullscreen="" loading="lazy">
         </iframe>
+    </div>
+    <div class="content">
+        <h2>Your Trusted Motorhome & RV Specialist</h2>
+        <p>With 13 years in the industry, I’ve decided to start this business to thrive and provide the best service possible.
+        Born and raised in the heart of the RV world, Elkhart, IN. I worked for Lippert and Forest River, from building frames 
+        to building the roof and everything in between. Let Walter's Mobile Solutions be your trusted partner in keeping your RV reliable.</p>
     </div>
 
     <footer>
