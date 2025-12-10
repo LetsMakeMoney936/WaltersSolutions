@@ -3,25 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Walter's Mobile Solutions</title>
     <style>
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            padding-top: 80px; /* adjusted for taller header */
+            padding-top: 70px; /* FIXES HEADER OVERLAP */
             background: url('https://letsmakemoney936.github.io/WaltersSolutions/Untilted.webp') no-repeat center center fixed;
             background-size: cover;
             color: #eee;
             text-align: center;
         }
 
-        /* Updated Header */
+        /* Restored header to original spacing */
         header {
             background: linear-gradient(to right, #222, #444);
             color: white;
-            padding: 12px; /* increased height */
-            font-size: 20px; /* slightly larger text */
+            padding: 5px; /* restored */
+            font-size: 18px; /* restored */
             font-weight: bolder;
             text-transform: uppercase;
             letter-spacing: 1.5px;
@@ -34,7 +34,137 @@
             align-items: center;
             justify-content: center;
             border-bottom: 2px solid #002f6c;
-            gap: 12px; /* spacing between logo & title */
+        }
+
+        /* Keep logo 15% bigger unless you want it reversed */
+        .logo {
+            width: 35px;
+            height: 35px;
+            margin-right: 8px; /* restored spacing */
+        }
+
+        .call-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #28a745;
+            color: white;
+            padding: 15px 20px;
+            font-size: 18px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .call-button:hover {
+            background: #218838;
+            transform: scale(1.1);
+        }
+
+        .content, .service-area, .services {
+            max-width: 900px;
+            margin: 60px auto 20px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .services h3, .content h2, .service-area h3 {
+            font-size: 24px;
+            color: #ffffff;
+        }
+
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            padding: 20px 0;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .service-desc {
+            display: none;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #ddd;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 8px;
+            border-radius: 5px;
+        }
+
+        .service-card.active .service-desc {
+            display: block;
+        }
+
+        button {
+            background: #002f6c;
+            color: black;
+            border: none;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            margin: 10px;
+        }
+
+        button:hover {
+            background: #001f4d;
+            transform: scale(1.05);
+        }
+    </style>
+
+    <script>
+        // Enable clicking service cards to show their descriptions
+        document.addEventListener('DOMContentLoaded', function () {
+            const cards = document.querySelectorAll('.service-card');
+            cards.forEach(card => {
+                card.addEventListener('click', () => {
+                    card.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <header>
+        <img src="https://letsmakemoney936.github.io/WaltersSolutions/logo.webp" alt="Logo" class="logo">
+        <h1>Walter's Mobile Solutions</h1>
+    </header>
+
+    <div class="content">
+        <h2>Your Trusted Motorhome & RV Specialist</h2>
+        <p>With 13 years in the industry, I’ve decided to start this business to thrive and provide the best service possible. I am dedicated to ensuring customer satisfaction and quality.
+        Born and raised in the heart of the RV world, Elkhart, IN. I worked for Lippert and Forest River, from building frames to building the roof and everything in between. Let Walter's Mobile Solutions be your trusted partner in keeping your RV reliable.</p>
+    </div>
+
+    <div class="services">
+        <h3>Our Services</h3>
+        <div class="services-container">
+            <div class="service-card"><li>Roof Repair & Se            gap: 12px; /* spacing between logo & title */
         }
 
         /* Logo: 15% bigger + better spacing */
