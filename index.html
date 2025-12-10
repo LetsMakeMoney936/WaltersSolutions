@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Walter's Mobile Solutions</title>
+
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
 
     <style>
@@ -12,7 +14,6 @@
             margin: 0;
             padding: 0;
             padding-top: 150px; /* for header logo space */
-            /* Removed "fixed" to stop background jumping */
             background: url('https://letsmakemoney936.github.io/WaltersSolutions/Untilted.webp') no-repeat center center;
             background-size: cover;
             background-attachment: scroll;
@@ -39,6 +40,12 @@
             display: block;
             opacity: 1;
             transition: opacity 0.35s ease-out;
+        }
+
+        .services-title {
+            width: 100%;
+            height: auto;
+            margin-bottom: 20px;
         }
 
         .call-button {
@@ -71,11 +78,6 @@
             background: rgba(0, 0, 0, 0.7);
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .services h3, .content h2, .service-area h3 {
-            font-size: 24px;
-            color: #ffffff;
         }
 
         .services-container {
@@ -142,7 +144,6 @@
                 window.addEventListener('scroll', () => {
                     const scrollY = window.scrollY;
 
-                    // Fade out between 0 and 50px
                     let opacity = 1 - scrollY / 50;
                     if (opacity < 0) opacity = 0;
                     if (opacity > 1) opacity = 1;
@@ -158,10 +159,8 @@
                 card.addEventListener('click', () => {
                     const isActive = card.classList.contains('active');
 
-                    // Close all cards
                     cards.forEach(c => c.classList.remove('active'));
 
-                    // If the clicked one was NOT open, open it
                     if (!isActive) {
                         card.classList.add('active');
                     }
@@ -173,14 +172,20 @@
 </head>
 
 <body>
+
+    <!-- Full-width header logo -->
     <header>
         <img src="https://letsmakemoney936.github.io/WaltersSolutions/Logo2.webp"
              alt="Walter's Mobile Solutions Logo"
              class="header-logo">
     </header>
 
+    <!-- NEW full-width services banner -->
+    <img src="https://letsmakemoney936.github.io/WaltersSolutions/services.png"
+         alt="Our Services"
+         class="services-title">
+
     <div class="services">
-        <h3>Our Services</h3>
         <div class="services-container">
             <div class="service-card"><li>Roof Repair & Sealing</li><div class="service-desc">Expert sealing and repair for roof leaks.</div></div>
             <div class="service-card"><li>Electrical System Troubleshooting</li><div class="service-desc">Diagnosing and fixing electrical issues.</div></div>
@@ -208,6 +213,8 @@
             allowfullscreen="" loading="lazy">
         </iframe>
     </div>
+
+    <!-- Intro text moved to bottom -->
     <div class="content">
         <h2>Your Trusted Motorhome & RV Specialist</h2>
         <p>With 13 years in the industry, I’ve decided to start this business to thrive and provide the best service possible.
