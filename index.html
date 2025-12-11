@@ -21,7 +21,8 @@
       font-family: "Poppins", sans-serif;
       margin: 0;
       padding: 0;
-      padding-top: 240px; /* space for logo + header */
+      /* space for logo + header */
+      padding-top: 240px;
       background-color: var(--bg-main);
       background-image: radial-gradient(circle at top, #1f2937 0, #020617 55%);
       background-repeat: no-repeat;
@@ -56,6 +57,7 @@
       text-align: left;
     }
 
+    /* First section (services) closer to header but not hidden */
     .section.services {
       margin-top: 10px;
     }
@@ -187,6 +189,7 @@
       text-decoration: underline;
     }
 
+    /* Slide-in from bottom animation */
     .slide-in {
       opacity: 0;
       transform: translateY(30px);
@@ -223,10 +226,10 @@
       const header = document.querySelector("header");
       const headerLogo = document.querySelector(".header-logo");
 
-      // Fade logo + header bar on scroll
+      // Faster fade for logo + header bar
       if (header && headerLogo) {
         window.addEventListener("scroll", () => {
-          const fadeOutPoint = 50;
+          const fadeOutPoint = 30; // faster fade
           let opacity = 1 - window.scrollY / fadeOutPoint;
           if (opacity < 0) opacity = 0;
           if (opacity > 1) opacity = 1;
@@ -234,7 +237,7 @@
           headerLogo.style.opacity = opacity;
           header.style.opacity = opacity;
 
-          // When header is fully invisible, let clicks go through
+          // Let taps pass through when header is fully invisible
           header.style.pointerEvents = opacity === 0 ? "none" : "auto";
         });
       }
