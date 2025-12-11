@@ -42,6 +42,7 @@
       object-fit: contain;
       opacity: 1;
       transition: opacity 0.35s ease-out;
+      display: block;
     }
 
     .section {
@@ -86,11 +87,12 @@
       border-radius: 8px;
       cursor: pointer;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-      transition: 0.3s;
+      transition: transform 0.3s, background 0.3s;
     }
 
     .service-card:hover {
       transform: scale(1.03);
+      background: rgba(255, 255, 255, 0.18);
     }
 
     .service-desc {
@@ -124,6 +126,8 @@
       color: white;
       transition: 0.2s;
       border: 1px solid transparent;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      white-space: nowrap;
     }
 
     .cta-banner.primary {
@@ -178,9 +182,30 @@
       text-decoration: underline;
     }
 
+    /* Slide-in from bottom animation */
+    .slide-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .slide-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     @media (max-width: 600px) {
       body {
         padding-top: 130px;
+      }
+
+      .section {
+        margin: 40px 10px 15px;
+        padding: 16px;
+      }
+
+      .section-banner {
+        font-size: 1.1rem;
       }
     }
   </style>
@@ -189,12 +214,18 @@
     document.addEventListener("DOMContentLoaded", function () {
       const headerLogo = document.querySelector(".header-logo");
 
-      window.addEventListener("scroll", () => {
-        const fadeOutPoint = 50;
-        let opacity = 1 - window.scrollY / fadeOutPoint;
-        headerLogo.style.opacity = Math.max(0, opacity);
-      });
+      // Fade logo on scroll
+      if (headerLogo) {
+        window.addEventListener("scroll", () => {
+          const fadeOutPoint = 50;
+          let opacity = 1 - window.scrollY / fadeOutPoint;
+          if (opacity < 0) opacity = 0;
+          if (opacity > 1) opacity = 1;
+          headerLogo.style.opacity = opacity;
+        });
+      }
 
+      // Accordion behavior for services
       const cards = document.querySelectorAll(".service-card");
       cards.forEach((card) => {
         card.addEventListener("click", () => {
@@ -203,6 +234,30 @@
           if (!open) card.classList.add("active");
         });
       });
+
+      // Slide-in on scroll using IntersectionObserver
+      const slideItems = document.querySelectorAll(".slide-in");
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                // Optional: unobserve after first reveal
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          {
+            threshold: 0.15
+          }
+        );
+
+        slideItems.forEach((el) => observer.observe(el));
+      } else {
+        // Fallback: show all if IntersectionObserver not supported
+        slideItems.forEach((el) => el.classList.add("visible"));
+      }
     });
   </script>
 </head>
@@ -210,81 +265,110 @@
 <body>
   <!-- Header -->
   <header>
-    <img src="https://letsmakemoney936.github.io/WaltersSolutions/Logo2.webp"
-         alt="Walter's Mobile Solutions Logo"
-         class="header-logo" />
+    <img
+      src="https://letsmakemoney936.github.io/WaltersSolutions/Logo2.webp"
+      alt="Walter's Mobile Solutions Logo"
+      class="header-logo"
+    />
   </header>
 
   <!-- 1️⃣ OUR SERVICES FIRST -->
-  <section class="section services">
-    <div class="section-banner">Our Services</div>
+  <section class="section services slide-in">
+    <div class="section-banner slide-in">Our Services</div>
 
     <div class="services-container">
-      <div class="service-card">
-        <li>Roof Repair & Sealing</li>
-        <div class="service-desc">Expert sealing and repair for roof leaks to protect your RV from water damage.</div>
+      <div class="service-card slide-in">
+        <li>Roof Repair &amp; Sealing</li>
+        <div class="service-desc">
+          Expert sealing and repair for roof leaks to protect your RV from water damage.
+        </div>
       </div>
-      <div class="service-card">
+
+      <div class="service-card slide-in">
         <li>Electrical System Troubleshooting</li>
-        <div class="service-desc">Diagnosing and repairing 12V and 120V RV electrical issues.</div>
+        <div class="service-desc">
+          Diagnosing and repairing 12V and 120V RV electrical issues.
+        </div>
       </div>
-      <div class="service-card">
-        <li>Plumbing Repairs & Water System Maintenance</li>
-        <div class="service-desc">Leak repair, water pump service, and full plumbing diagnostics.</div>
+
+      <div class="service-card slide-in">
+        <li>Plumbing Repairs &amp; Water System Maintenance</li>
+        <div class="service-desc">
+          Leak repair, water pump service, and full plumbing diagnostics.
+        </div>
       </div>
-      <div class="service-card">
-        <li>Slide-Out Repairs & Adjustments</li>
-        <div class="service-desc">Slide-out alignment, seal replacement, and system repairs.</div>
+
+      <div class="service-card slide-in">
+        <li>Slide-Out Repairs &amp; Adjustments</li>
+        <div class="service-desc">
+          Slide-out alignment, seal replacement, and system repairs.
+        </div>
       </div>
-      <div class="service-card">
+
+      <div class="service-card slide-in">
         <li>Appliance Repairs</li>
-        <div class="service-desc">Service for common RV appliances including AC, water heaters, and fans.</div>
+        <div class="service-desc">
+          Service for common RV appliances including AC, water heaters, and fans.
+        </div>
       </div>
-      <div class="service-card">
-        <li>Brake & Suspension</li>
-        <div class="service-desc">Inspection and repair of brakes, axles, hubs, and suspension components.</div>
+
+      <div class="service-card slide-in">
+        <li>Brake &amp; Suspension</li>
+        <div class="service-desc">
+          Inspection and repair of brakes, axles, hubs, and suspension components.
+        </div>
       </div>
-      <div class="service-card">
-        <li>Interior & Exterior Repairs</li>
-        <div class="service-desc">Cosmetic and structural repairs for walls, trim, doors, and exterior damage.</div>
+
+      <div class="service-card slide-in">
+        <li>Interior &amp; Exterior Repairs</li>
+        <div class="service-desc">
+          Cosmetic and structural repairs for walls, trim, doors, and exterior damage.
+        </div>
       </div>
-      <div class="service-card">
-        <li>Battery & Charging System Maintenance</li>
-        <div class="service-desc">Battery testing, replacement, wiring repair, and charging diagnostics.</div>
+
+      <div class="service-card slide-in">
+        <li>Battery &amp; Charging System Maintenance</li>
+        <div class="service-desc">
+          Battery testing, replacement, wiring repair, and charging diagnostics.
+        </div>
       </div>
-      <div class="service-card">
-        <li>Leak Detection & Prevention</li>
-        <div class="service-desc">Finding leaks early and sealing before causing major RV damage.</div>
+
+      <div class="service-card slide-in">
+        <li>Leak Detection &amp; Prevention</li>
+        <div class="service-desc">
+          Finding leaks early and sealing before causing major RV damage.
+        </div>
       </div>
     </div>
 
-    <div class="cta-row">
+    <div class="cta-row slide-in">
       <a href="Services.html" class="cta-banner secondary">View All Services</a>
       <a href="schedule.html" class="cta-banner primary">Schedule Repair</a>
     </div>
   </section>
 
   <!-- 2️⃣ SERVICE AREA SECOND -->
-  <section class="section service-area center">
-    <div class="section-banner">Service Area</div>
-    <p>Nacogdoches and surrounding areas within 100 miles.</p>
+  <section class="section service-area center slide-in">
+    <div class="section-banner slide-in">Service Area</div>
+    <p class="slide-in">Nacogdoches and surrounding areas within 100 miles.</p>
     <iframe
       src="https://www.google.com/maps?q=Nacogdoches,TX&output=embed"
       width="100%"
       height="300"
       style="border-radius: 10px; border: 0"
       loading="lazy"
+      class="slide-in"
     ></iframe>
   </section>
 
   <!-- 3️⃣ ABOUT US THIRD -->
-  <section class="section about">
-    <div class="section-banner">About Us</div>
-    <p>
+  <section class="section about slide-in">
+    <div class="section-banner slide-in">About Us</div>
+    <p class="slide-in">
       With 13 years in the RV industry, I’ve built everything from frames to roofing,
       working at Lippert and Forest River in Elkhart, Indiana.
     </p>
-    <p>
+    <p class="slide-in">
       Walter’s Mobile Solutions exists to bring that same expertise directly to your RV —
       providing reliable, honest, and skilled repair work wherever you are.
     </p>
