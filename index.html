@@ -66,19 +66,25 @@
       text-align: center;
     }
 
+    /* SECTION HEADERS: transparent background + light blue underline */
     .section-banner {
       width: 100%;
-      padding: 14px 10px;
       margin-bottom: 20px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, #020617, #1f2937);
-      border: 1px solid var(--accent-blue);
-      color: var(--text-light);
+      text-align: center;
+      background: transparent; /* transparent background */
+      border: none;            /* no box border */
+      padding: 0;
+    }
+
+    .section-banner span {
+      display: inline-block;
+      padding-bottom: 4px;
+      border-bottom: 2px solid var(--accent-blue); /* light blue underline */
       font-size: 1.35rem;
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      text-align: center;
+      color: var(--text-light);
       text-shadow: 0 0 6px rgba(0, 0, 0, 0.8);
     }
 
@@ -215,7 +221,7 @@
         margin-top: 8px;
       }
 
-      .section-banner {
+      .section-banner span {
         font-size: 1.1rem;
       }
     }
@@ -229,7 +235,7 @@
       // Faster fade for logo + header bar
       if (header && headerLogo) {
         window.addEventListener("scroll", () => {
-          const fadeOutPoint = 30; // faster fade
+          const fadeOutPoint = 30; // fast fade
           let opacity = 1 - window.scrollY / fadeOutPoint;
           if (opacity < 0) opacity = 0;
           if (opacity > 1) opacity = 1;
@@ -286,7 +292,9 @@
 
   <!-- 1️⃣ OUR SERVICES -->
   <section class="section services">
-    <div class="section-banner">Our Services</div>
+    <div class="section-banner">
+      <span>Our Services</span>
+    </div>
 
     <div class="services-container">
       <div class="service-card slide-in">
@@ -361,7 +369,9 @@
 
   <!-- 2️⃣ SERVICE AREA -->
   <section class="section service-area center slide-in">
-    <div class="section-banner">Service Area</div>
+    <div class="section-banner">
+      <span>Service Area</span>
+    </div>
     <p>Nacogdoches and surrounding areas within 100 miles.</p>
     <iframe
       src="https://www.google.com/maps?q=Nacogdoches,TX&output=embed"
@@ -374,7 +384,9 @@
 
   <!-- 3️⃣ ABOUT US -->
   <section class="section about slide-in">
-    <div class="section-banner">About Us</div>
+    <div class="section-banner">
+      <span>About Us</span>
+    </div>
     <p>
       With 13 years in the RV industry, I’ve built everything from frames to roofing,
       working at Lippert and Forest River in Elkhart, Indiana.
