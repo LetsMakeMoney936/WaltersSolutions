@@ -66,26 +66,23 @@
       text-align: center;
     }
 
-    /* SECTION HEADERS: transparent background + light blue underline */
+    /* Section banner using PNG images (non-clickable) */
     .section-banner {
       width: 100%;
       margin-bottom: 20px;
       text-align: center;
-      background: transparent; /* transparent background */
-      border: none;            /* no box border */
+      background: transparent;
+      border: none;
       padding: 0;
     }
 
-    .section-banner span {
-      display: inline-block;
-      padding-bottom: 4px;
-      border-bottom: 2px solid var(--accent-blue); /* light blue underline */
-      font-size: 1.35rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-light);
-      text-shadow: 0 0 6px rgba(0, 0, 0, 0.8);
+    .section-banner img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      pointer-events: none;  /* feels decorative, not clickable */
+      user-select: none;
     }
 
     .services-container {
@@ -220,10 +217,6 @@
       .section.services {
         margin-top: 8px;
       }
-
-      .section-banner span {
-        font-size: 1.1rem;
-      }
     }
   </style>
 
@@ -293,7 +286,8 @@
   <!-- 1️⃣ OUR SERVICES -->
   <section class="section services">
     <div class="section-banner">
-      <span>Our Services</span>
+      <!-- Upload your image as our-services.png -->
+      <img src="our-services.png" alt="Our Services" class="slide-in" />
     </div>
 
     <div class="services-container">
@@ -370,7 +364,8 @@
   <!-- 2️⃣ SERVICE AREA -->
   <section class="section service-area center slide-in">
     <div class="section-banner">
-      <span>Service Area</span>
+      <!-- Upload your image as service-area.png -->
+      <img src="service-area.png" alt="Service Area" class="slide-in" />
     </div>
     <p>Nacogdoches and surrounding areas within 100 miles.</p>
     <iframe
@@ -385,7 +380,8 @@
   <!-- 3️⃣ ABOUT US -->
   <section class="section about slide-in">
     <div class="section-banner">
-      <span>About Us</span>
+      <!-- Upload your image as about-us.png -->
+      <img src="about-us.png" alt="About Us" class="slide-in" />
     </div>
     <p>
       With 13 years in the RV industry, I’ve built everything from frames to roofing,
