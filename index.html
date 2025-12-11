@@ -14,14 +14,16 @@
       --accent-green: #22c55e;
       --card-bg: rgba(0, 0, 0, 0.75);
       --text-light: #f9fafb;
+      --bg-main: #020617;
     }
 
     body {
       font-family: "Poppins", sans-serif;
       margin: 0;
       padding: 0;
-      padding-top: 150px;
-      background-color: #020617;
+      /* a bit more padding to account for the slightly taller logo */
+      padding-top: 170px;
+      background-color: var(--bg-main);
       background-image: radial-gradient(circle at top, #1f2937 0, #020617 55%);
       background-repeat: no-repeat;
       color: var(--text-light);
@@ -33,12 +35,13 @@
       top: 0;
       width: 100%;
       z-index: 1000;
-      background: transparent;
+      /* fill the sides behind the logo */
+      background-color: var(--bg-main);
     }
 
     .header-logo {
       width: 100%;
-      max-height: 240px;
+      max-height: 260px;  /* slightly taller so it feels wider */
       object-fit: contain;
       opacity: 1;
       transition: opacity 0.35s ease-out;
@@ -47,12 +50,17 @@
 
     .section {
       max-width: 900px;
-      margin: 60px auto 20px;
+      margin: 40px auto 20px;
       padding: 20px;
       background: var(--card-bg);
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
       text-align: left;
+    }
+
+    /* first (services) block sits a bit closer to the logo */
+    .section.services {
+      margin-top: 20px;
     }
 
     .section.center {
@@ -196,12 +204,16 @@
 
     @media (max-width: 600px) {
       body {
-        padding-top: 130px;
+        padding-top: 150px;
       }
 
       .section {
-        margin: 40px 10px 15px;
+        margin: 30px 10px 15px;
         padding: 16px;
+      }
+
+      .section.services {
+        margin-top: 15px;
       }
 
       .section-banner {
@@ -225,7 +237,7 @@
         });
       }
 
-      // Accordion behavior for services
+      // Accordion for services
       const cards = document.querySelectorAll(".service-card");
       cards.forEach((card) => {
         card.addEventListener("click", () => {
@@ -235,7 +247,7 @@
         });
       });
 
-      // Slide-in on scroll using IntersectionObserver
+      // Slide-in on scroll
       const slideItems = document.querySelectorAll(".slide-in");
       if ("IntersectionObserver" in window) {
         const observer = new IntersectionObserver(
@@ -243,19 +255,14 @@
             entries.forEach((entry) => {
               if (entry.isIntersecting) {
                 entry.target.classList.add("visible");
-                // Optional: unobserve after first reveal
                 observer.unobserve(entry.target);
               }
             });
           },
-          {
-            threshold: 0.15
-          }
+          { threshold: 0.15 }
         );
-
         slideItems.forEach((el) => observer.observe(el));
       } else {
-        // Fallback: show all if IntersectionObserver not supported
         slideItems.forEach((el) => el.classList.add("visible"));
       }
     });
@@ -272,7 +279,7 @@
     />
   </header>
 
-  <!-- 1️⃣ OUR SERVICES FIRST -->
+  <!-- 1️⃣ OUR SERVICES -->
   <section class="section services slide-in">
     <div class="section-banner slide-in">Our Services</div>
 
@@ -347,7 +354,7 @@
     </div>
   </section>
 
-  <!-- 2️⃣ SERVICE AREA SECOND -->
+  <!-- 2️⃣ SERVICE AREA -->
   <section class="section service-area center slide-in">
     <div class="section-banner slide-in">Service Area</div>
     <p class="slide-in">Nacogdoches and surrounding areas within 100 miles.</p>
@@ -361,7 +368,7 @@
     ></iframe>
   </section>
 
-  <!-- 3️⃣ ABOUT US THIRD -->
+  <!-- 3️⃣ ABOUT US -->
   <section class="section about slide-in">
     <div class="section-banner slide-in">About Us</div>
     <p class="slide-in">
