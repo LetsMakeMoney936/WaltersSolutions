@@ -21,8 +21,8 @@
       font-family: "Poppins", sans-serif;
       margin: 0;
       padding: 0;
-      /* a bit more padding to account for the slightly taller logo */
-      padding-top: 170px;
+      /* Enough padding so the first section clears the header+logo fully */
+      padding-top: 240px;
       background-color: var(--bg-main);
       background-image: radial-gradient(circle at top, #1f2937 0, #020617 55%);
       background-repeat: no-repeat;
@@ -35,13 +35,12 @@
       top: 0;
       width: 100%;
       z-index: 1000;
-      /* fill the sides behind the logo */
       background-color: var(--bg-main);
     }
 
     .header-logo {
       width: 100%;
-      max-height: 260px;  /* slightly taller so it feels wider */
+      max-height: 230px; /* slightly shorter so padding-top fits it */
       object-fit: contain;
       opacity: 1;
       transition: opacity 0.35s ease-out;
@@ -50,7 +49,7 @@
 
     .section {
       max-width: 900px;
-      margin: 40px auto 20px;
+      margin: 30px auto 20px;
       padding: 20px;
       background: var(--card-bg);
       border-radius: 10px;
@@ -58,9 +57,9 @@
       text-align: left;
     }
 
-    /* first (services) block sits a bit closer to the logo */
+    /* First section (services) – a bit closer to logo but still clear */
     .section.services {
-      margin-top: 20px;
+      margin-top: 10px;
     }
 
     .section.center {
@@ -204,16 +203,16 @@
 
     @media (max-width: 600px) {
       body {
-        padding-top: 150px;
+        padding-top: 220px;
       }
 
       .section {
-        margin: 30px 10px 15px;
+        margin: 25px 10px 15px;
         padding: 16px;
       }
 
       .section.services {
-        margin-top: 15px;
+        margin-top: 8px;
       }
 
       .section-banner {
@@ -247,7 +246,7 @@
         });
       });
 
-      // Slide-in on scroll
+      // Slide-in on scroll (NOT applied to the first banner/section so they're visible on load)
       const slideItems = document.querySelectorAll(".slide-in");
       if ("IntersectionObserver" in window) {
         const observer = new IntersectionObserver(
@@ -280,8 +279,8 @@
   </header>
 
   <!-- 1️⃣ OUR SERVICES -->
-  <section class="section services slide-in">
-    <div class="section-banner slide-in">Our Services</div>
+  <section class="section services">
+    <div class="section-banner">Our Services</div>
 
     <div class="services-container">
       <div class="service-card slide-in">
@@ -356,26 +355,25 @@
 
   <!-- 2️⃣ SERVICE AREA -->
   <section class="section service-area center slide-in">
-    <div class="section-banner slide-in">Service Area</div>
-    <p class="slide-in">Nacogdoches and surrounding areas within 100 miles.</p>
+    <div class="section-banner">Service Area</div>
+    <p>Nacogdoches and surrounding areas within 100 miles.</p>
     <iframe
       src="https://www.google.com/maps?q=Nacogdoches,TX&output=embed"
       width="100%"
       height="300"
       style="border-radius: 10px; border: 0"
       loading="lazy"
-      class="slide-in"
     ></iframe>
   </section>
 
   <!-- 3️⃣ ABOUT US -->
   <section class="section about slide-in">
-    <div class="section-banner slide-in">About Us</div>
-    <p class="slide-in">
+    <div class="section-banner">About Us</div>
+    <p>
       With 13 years in the RV industry, I’ve built everything from frames to roofing,
       working at Lippert and Forest River in Elkhart, Indiana.
     </p>
-    <p class="slide-in">
+    <p>
       Walter’s Mobile Solutions exists to bring that same expertise directly to your RV —
       providing reliable, honest, and skilled repair work wherever you are.
     </p>
