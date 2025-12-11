@@ -66,7 +66,7 @@
       text-align: center;
     }
 
-    /* Section banner using PNG images (non-clickable) */
+    /* Section banner using inline SVG (non-clickable graphic) */
     .section-banner {
       width: 100%;
       margin-bottom: 20px;
@@ -76,12 +76,12 @@
       padding: 0;
     }
 
-    .section-banner img {
+    .section-banner svg {
       max-width: 100%;
       height: auto;
       display: block;
       margin: 0 auto;
-      pointer-events: none;  /* feels decorative, not clickable */
+      pointer-events: none; /* clearly not clickable */
       user-select: none;
     }
 
@@ -285,9 +285,37 @@
 
   <!-- 1️⃣ OUR SERVICES -->
   <section class="section services">
-    <div class="section-banner">
-      <!-- Upload your image as our-services.png -->
-      <img src="our-services.png" alt="Our Services" class="slide-in" />
+    <div class="section-banner slide-in">
+      <svg viewBox="0 0 600 120" aria-hidden="true">
+        <defs>
+          <linearGradient id="chromeGradient" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#f9fafb" />
+            <stop offset="40%" stop-color="#d1d5db" />
+            <stop offset="60%" stop-color="#9ca3af" />
+            <stop offset="100%" stop-color="#111827" />
+          </linearGradient>
+        </defs>
+        <text
+          x="50%"
+          y="50%"
+          text-anchor="middle"
+          fill="url(#chromeGradient)"
+          font-size="40"
+          font-weight="700"
+          letter-spacing="4"
+          dominant-baseline="middle"
+        >
+          OUR SERVICES
+        </text>
+        <rect
+          x="110"
+          y="78"
+          width="380"
+          height="4"
+          rx="2"
+          fill="#38bdf8"
+        />
+      </svg>
     </div>
 
     <div class="services-container">
@@ -363,9 +391,37 @@
 
   <!-- 2️⃣ SERVICE AREA -->
   <section class="section service-area center slide-in">
-    <div class="section-banner">
-      <!-- Upload your image as service-area.png -->
-      <img src="service-area.png" alt="Service Area" class="slide-in" />
+    <div class="section-banner slide-in">
+      <svg viewBox="0 0 600 120" aria-hidden="true">
+        <defs>
+          <linearGradient id="chromeGradient2" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#f9fafb" />
+            <stop offset="40%" stop-color="#d1d5db" />
+            <stop offset="60%" stop-color="#9ca3af" />
+            <stop offset="100%" stop-color="#111827" />
+          </linearGradient>
+        </defs>
+        <text
+          x="50%"
+          y="50%"
+          text-anchor="middle"
+          fill="url(#chromeGradient2)"
+          font-size="40"
+          font-weight="700"
+          letter-spacing="4"
+          dominant-baseline="middle"
+        >
+          SERVICE AREA
+        </text>
+        <rect
+          x="150"
+          y="78"
+          width="300"
+          height="4"
+          rx="2"
+          fill="#38bdf8"
+        />
+      </svg>
     </div>
     <p>Nacogdoches and surrounding areas within 100 miles.</p>
     <iframe
@@ -379,9 +435,37 @@
 
   <!-- 3️⃣ ABOUT US -->
   <section class="section about slide-in">
-    <div class="section-banner">
-      <!-- Upload your image as about-us.png -->
-      <img src="about-us.png" alt="About Us" class="slide-in" />
+    <div class="section-banner slide-in">
+      <svg viewBox="0 0 600 120" aria-hidden="true">
+        <defs>
+          <linearGradient id="chromeGradient3" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#f9fafb" />
+            <stop offset="40%" stop-color="#d1d5db" />
+            <stop offset="60%" stop-color="#9ca3af" />
+            <stop offset="100%" stop-color="#111827" />
+          </linearGradient>
+        </defs>
+        <text
+          x="50%"
+          y="50%"
+          text-anchor="middle"
+          fill="url(#chromeGradient3)"
+          font-size="40"
+          font-weight="700"
+          letter-spacing="4"
+          dominant-baseline="middle"
+        >
+          ABOUT US
+        </text>
+        <rect
+          x="170"
+          y="78"
+          width="260"
+          height="4"
+          rx="2"
+          fill="#38bdf8"
+        />
+      </svg>
     </div>
     <p>
       With 13 years in the RV industry, I’ve built everything from frames to roofing,
