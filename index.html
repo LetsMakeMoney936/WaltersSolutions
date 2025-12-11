@@ -21,8 +21,7 @@
       font-family: "Poppins", sans-serif;
       margin: 0;
       padding: 0;
-      /* Enough padding so the first section clears the header+logo fully */
-      padding-top: 240px;
+      padding-top: 240px; /* space for logo + header */
       background-color: var(--bg-main);
       background-image: radial-gradient(circle at top, #1f2937 0, #020617 55%);
       background-repeat: no-repeat;
@@ -40,7 +39,7 @@
 
     .header-logo {
       width: 100%;
-      max-height: 230px; /* slightly shorter so padding-top fits it */
+      max-height: 230px;
       object-fit: contain;
       opacity: 1;
       transition: opacity 0.35s ease-out;
@@ -57,7 +56,6 @@
       text-align: left;
     }
 
-    /* First section (services) – a bit closer to logo but still clear */
     .section.services {
       margin-top: 10px;
     }
@@ -189,7 +187,6 @@
       text-decoration: underline;
     }
 
-    /* Slide-in from bottom animation */
     .slide-in {
       opacity: 0;
       transform: translateY(30px);
@@ -223,16 +220,22 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
+      const header = document.querySelector("header");
       const headerLogo = document.querySelector(".header-logo");
 
-      // Fade logo on scroll
-      if (headerLogo) {
+      // Fade logo + header bar on scroll
+      if (header && headerLogo) {
         window.addEventListener("scroll", () => {
           const fadeOutPoint = 50;
           let opacity = 1 - window.scrollY / fadeOutPoint;
           if (opacity < 0) opacity = 0;
           if (opacity > 1) opacity = 1;
+
           headerLogo.style.opacity = opacity;
+          header.style.opacity = opacity;
+
+          // When header is fully invisible, let clicks go through
+          header.style.pointerEvents = opacity === 0 ? "none" : "auto";
         });
       }
 
@@ -246,7 +249,7 @@
         });
       });
 
-      // Slide-in on scroll (NOT applied to the first banner/section so they're visible on load)
+      // Slide-in on scroll
       const slideItems = document.querySelectorAll(".slide-in");
       if ("IntersectionObserver" in window) {
         const observer = new IntersectionObserver(
