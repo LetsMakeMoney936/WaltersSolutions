@@ -21,8 +21,7 @@
       font-family: "Poppins", sans-serif;
       margin: 0;
       padding: 0;
-      /* space for logo + header */
-      padding-top: 240px;
+      padding-top: 240px; /* space for logo + header */
       background-color: var(--bg-main);
       background-image: radial-gradient(circle at top, #1f2937 0, #020617 55%);
       background-repeat: no-repeat;
@@ -65,7 +64,6 @@
       text-align: center;
     }
 
-    /* Section banner using inline SVG (non-clickable graphic) */
     .section-banner {
       width: 100%;
       margin-bottom: 20px;
@@ -76,12 +74,13 @@
     }
 
     .section-banner svg {
-      max-width: 100%;
+      width: 100%;
       height: auto;
       display: block;
       margin: 0 auto;
       pointer-events: none;
       user-select: none;
+      overflow: visible;
     }
 
     .services-container {
@@ -191,7 +190,6 @@
       text-decoration: underline;
     }
 
-    /* Slide-in from bottom animation */
     .slide-in {
       opacity: 0;
       transform: translateY(30px);
@@ -224,23 +222,19 @@
       const header = document.querySelector("header");
       const headerLogo = document.querySelector(".header-logo");
 
-      // Faster fade for logo + header bar
       if (header && headerLogo) {
         window.addEventListener("scroll", () => {
-          const fadeOutPoint = 30; // fast fade
+          const fadeOutPoint = 30;
           let opacity = 1 - window.scrollY / fadeOutPoint;
           if (opacity < 0) opacity = 0;
           if (opacity > 1) opacity = 1;
 
           headerLogo.style.opacity = opacity;
           header.style.opacity = opacity;
-
-          // Let taps pass through when header is fully invisible
           header.style.pointerEvents = opacity === 0 ? "none" : "auto";
         });
       }
 
-      // Accordion for services
       const cards = document.querySelectorAll(".service-card");
       cards.forEach((card) => {
         card.addEventListener("click", () => {
@@ -250,7 +244,6 @@
         });
       });
 
-      // Slide-in on scroll
       const slideItems = document.querySelectorAll(".slide-in");
       if ("IntersectionObserver" in window) {
         const observer = new IntersectionObserver(
@@ -285,10 +278,9 @@
   <!-- 1️⃣ OUR SERVICES -->
   <section class="section services">
     <div class="section-banner slide-in">
-      <!-- Super-wide OUR SERVICES SVG with full-width blue line -->
       <svg viewBox="0 0 1800 300" aria-hidden="true">
         <defs>
-          <linearGradient id="chromeStrong1" x1="0" y1="0" x2="0" y2="1">
+          <linearGradient id="chrome1" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stop-color="#ffffff" />
             <stop offset="20%" stop-color="#d4d7dc" />
             <stop offset="50%" stop-color="#8a8f98" />
@@ -299,25 +291,24 @@
 
         <text
           x="50%"
-          y="50%"
+          y="45%"
           text-anchor="middle"
-          fill="url(#chromeStrong1)"
+          fill="url(#chrome1)"
           font-size="150"
           font-weight="900"
           letter-spacing="20"
           dominant-baseline="middle"
-          style="paint-order: stroke; stroke: #000; stroke-width: 12px;"
+          style="paint-order: stroke; stroke: #000; stroke-width: 14px;"
         >
           OUR SERVICES
         </text>
 
-        <!-- Blue bar nearly full-width under the text -->
         <rect
-          x="80"
+          x="0"
           y="210"
-          width="1640"
-          height="14"
-          rx="7"
+          width="1800"
+          height="18"
+          rx="9"
           fill="#38bdf8"
         />
       </svg>
@@ -397,10 +388,9 @@
   <!-- 2️⃣ SERVICE AREA -->
   <section class="section service-area center slide-in">
     <div class="section-banner slide-in">
-      <!-- Super-wide SERVICE AREA SVG with full-width blue line -->
       <svg viewBox="0 0 1800 300" aria-hidden="true">
         <defs>
-          <linearGradient id="chromeStrong2" x1="0" y1="0" x2="0" y2="1">
+          <linearGradient id="chrome2" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stop-color="#ffffff" />
             <stop offset="20%" stop-color="#d4d7dc" />
             <stop offset="50%" stop-color="#8a8f98" />
@@ -411,25 +401,24 @@
 
         <text
           x="50%"
-          y="50%"
+          y="45%"
           text-anchor="middle"
-          fill="url(#chromeStrong2)"
+          fill="url(#chrome2)"
           font-size="150"
           font-weight="900"
           letter-spacing="20"
           dominant-baseline="middle"
-          style="paint-order: stroke; stroke: #000; stroke-width: 12px;"
+          style="paint-order: stroke; stroke: #000; stroke-width: 14px;"
         >
           SERVICE AREA
         </text>
 
-        <!-- Blue bar nearly full-width under the text -->
         <rect
-          x="80"
+          x="0"
           y="210"
-          width="1640"
-          height="14"
-          rx="7"
+          width="1800"
+          height="18"
+          rx="9"
           fill="#38bdf8"
         />
       </svg>
@@ -447,10 +436,9 @@
   <!-- 3️⃣ ABOUT US -->
   <section class="section about slide-in">
     <div class="section-banner slide-in">
-      <!-- Super-wide ABOUT US SVG with full-width blue line -->
       <svg viewBox="0 0 1800 300" aria-hidden="true">
         <defs>
-          <linearGradient id="chromeStrong3" x1="0" y1="0" x2="0" y2="1">
+          <linearGradient id="chrome3" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stop-color="#ffffff" />
             <stop offset="20%" stop-color="#d4d7dc" />
             <stop offset="50%" stop-color="#8a8f98" />
@@ -461,25 +449,24 @@
 
         <text
           x="50%"
-          y="50%"
+          y="45%"
           text-anchor="middle"
-          fill="url(#chromeStrong3)"
+          fill="url(#chrome3)"
           font-size="150"
           font-weight="900"
           letter-spacing="20"
           dominant-baseline="middle"
-          style="paint-order: stroke; stroke: #000; stroke-width: 12px;"
+          style="paint-order: stroke; stroke: #000; stroke-width: 14px;"
         >
           ABOUT US
         </text>
 
-        <!-- Blue bar nearly full-width under the text -->
         <rect
-          x="80"
+          x="0"
           y="210"
-          width="1640"
-          height="14"
-          rx="7"
+          width="1800"
+          height="18"
+          rx="9"
           fill="#38bdf8"
         />
       </svg>
