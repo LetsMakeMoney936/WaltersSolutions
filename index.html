@@ -95,6 +95,8 @@
       padding: 0 16px;
     }
 
+    /* ==================== HEADER / NAV ==================== */
+
     header {
       position: sticky;
       top: 0;
@@ -201,6 +203,8 @@
       border-color: rgba(56, 189, 248, 0.55);
     }
 
+    /* ==================== HERO ==================== */
+
     .hero { padding: 28px 16px 24px; }
 
     .hero-inner {
@@ -274,6 +278,10 @@
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
       cursor: pointer;
       transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+      color: var(--text-main);
+      font-family: inherit;
+      appearance: none;
+      -webkit-appearance: none;
     }
 
     .pill-primary {
@@ -282,10 +290,14 @@
       color: #ecfdf5;
     }
 
+    /* ✅ Force the "accent" pills/buttons to stay WHITE (fixes black text) */
     .pill-accent {
       border-color: var(--accent-blue);
       background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: var(--text-main);
     }
+    .pill-accent .pill-label { color: var(--text-main); }
+    .pill-accent .pill-sub { color: rgba(249, 250, 251, 0.85); }
 
     .pill .pill-label {
       text-transform: uppercase;
@@ -300,6 +312,8 @@
 
     .hero-meta { font-size: 0.86rem; color: var(--text-muted); }
     .hero-meta strong { color: var(--accent-blue); font-weight: 700; }
+
+    /* ==================== SECTIONS ==================== */
 
     section { padding: 32px 0 16px; }
 
@@ -321,6 +335,8 @@
     }
     .section-title { font-size: 1.45rem; margin: 0 0 6px; }
     .section-subtitle { font-size: 0.98rem; color: var(--text-muted); max-width: 44rem; }
+
+    /* ==================== SERVICES ==================== */
 
     .services-grid {
       display: grid;
@@ -386,6 +402,8 @@
     .service-toggle-icon { font-size: 1.05rem; transition: transform 0.15s ease; }
     .service-card.active .service-toggle-icon { transform: rotate(180deg); }
 
+    /* ==================== SERVICE AREA ==================== */
+
     .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 14px; }
 
     .chip {
@@ -430,6 +448,8 @@
 
     .fact-value { font-weight: 700; }
 
+    /* ==================== ABOUT ==================== */
+
     .about-layout {
       display: grid;
       grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
@@ -465,6 +485,8 @@
     .highlight-title { font-weight: 800; margin-bottom: 4px; }
     .highlight-sub { color: var(--text-muted); font-size: 0.86rem; }
 
+    /* ==================== PROCESS ==================== */
+
     .process-steps {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
@@ -490,6 +512,8 @@
 
     .step-title { font-weight: 800; margin-bottom: 6px; }
     .step-body { color: var(--text-muted); font-size: 0.9rem; }
+
+    /* ==================== CONTACT ==================== */
 
     .contact-layout {
       display: grid;
@@ -553,6 +577,8 @@
     }
     .contact-hours li { display: flex; justify-content: space-between; gap: 12px; }
 
+    /* ==================== FLOATING CALL BUTTON ==================== */
+
     .call-floating {
       position: fixed;
       right: 16px;
@@ -581,6 +607,8 @@
       100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
     }
 
+    /* ==================== FOOTER ==================== */
+
     footer {
       padding: 18px 16px 22px;
       font-size: 0.86rem;
@@ -598,6 +626,8 @@
       align-items: center;
     }
 
+    /* ==================== REVEAL ==================== */
+
     .reveal {
       opacity: 0;
       transform: translateY(22px);
@@ -605,6 +635,8 @@
     }
 
     .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ==================== RESPONSIVE ==================== */
 
     @media (max-width: 900px) {
       .about-layout, .contact-layout { grid-template-columns: 1fr; }
@@ -958,29 +990,41 @@
 
           <div class="contact-layout">
             <div>
-              <form class="contact-form" id="requestForm" action="https://formsubmit.co/robbywalter0@live.com" method="POST">
+              <!-- ✅ FormSubmit (email notifications + customer auto-response) -->
+              <form class="contact-form" id="requestForm"
+                    action="https://formsubmit.co/robbywalter0@live.com"
+                    method="POST">
+
                 <input type="hidden" name="_subject" value="New RV Repair Request - Walter's Mobile Solutions" />
-                <input type="hidden" name="_captcha" value="false" />
                 <input type="hidden" name="_template" value="table" />
                 <input type="hidden" name="_autoresponse" value="Thanks for contacting Walter's Mobile Solutions! We received your request and will contact you soon to schedule your repair." />
-                <input type="hidden" name="_next" value="thank-you.html" />
+                <input type="hidden" name="_next" value="https://walterssolutions.com/thank-you.html" />
+                <input type="hidden" name="_url" value="https://walterssolutions.com/#contact" />
+
+                <!-- Spam trap -->
+                <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
 
                 <div>
                   <label for="name">Name*</label>
                   <input id="name" name="name" type="text" required />
                 </div>
+
                 <div>
                   <label for="phone">Phone*</label>
                   <input id="phone" name="phone" type="tel" required placeholder="(936) 555-1234" />
                 </div>
+
                 <div>
                   <label for="email">Email (optional)</label>
-                  <input id="email" name="_replyto" type="email" placeholder="you@email.com" />
+                  <!-- ✅ Must be name="email" for autoresponse to work -->
+                  <input id="email" name="email" type="email" placeholder="you@email.com" />
                 </div>
+
                 <div>
                   <label for="location">Where is the RV located?*</label>
                   <input id="location" name="location" type="text" placeholder="Park, campground, city, or address" required />
                 </div>
+
                 <div>
                   <label for="rigType">Rig Type*</label>
                   <select id="rigType" name="rigType" required>
@@ -992,6 +1036,7 @@
                     <option value="other">Other / Not sure</option>
                   </select>
                 </div>
+
                 <div>
                   <label for="issueType">Main Issue*</label>
                   <select id="issueType" name="issueType" required>
@@ -1006,10 +1051,12 @@
                     <option value="other">Something Else</option>
                   </select>
                 </div>
+
                 <div>
                   <label for="preferredDate">Preferred Date</label>
                   <input id="preferredDate" name="preferredDate" type="date" />
                 </div>
+
                 <div>
                   <label for="urgency">How urgent is this?</label>
                   <select id="urgency" name="urgency">
@@ -1018,11 +1065,13 @@
                     <option value="traveling">Traveling through &amp; need help if possible</option>
                   </select>
                 </div>
+
                 <div class="full">
                   <label for="description">Brief description of the issue*</label>
                   <textarea id="description" name="description" required
                     placeholder="Example: Water drip above the slide when it rains, lights dim when I run the water pump, soft spot by the entry door, etc."></textarea>
                 </div>
+
                 <div class="full">
                   <button type="submit" class="pill pill-accent" style="width: 100%; justify-content: center;">
                     <span class="pill-label">Submit Request</span>
