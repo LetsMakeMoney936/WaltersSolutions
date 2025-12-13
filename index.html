@@ -95,8 +95,6 @@
       padding: 0 16px;
     }
 
-    /* ==================== HEADER / NAV ==================== */
-
     header {
       position: sticky;
       top: 0;
@@ -118,7 +116,6 @@
       align-items: center;
       gap: 12px;
       min-width: 0;
-      flex: 1 1 auto;
     }
 
     .nav-logo {
@@ -128,33 +125,24 @@
       flex: 0 0 auto;
     }
 
-    .nav-title {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.1;
-      min-width: 0;
-      flex: 1 1 auto;
-    }
-
-    /* ✅ FIX: no more cut-off by default */
-    .nav-title-main,
-    .nav-title-sub {
-      white-space: normal;   /* allow wrap */
-      overflow: visible;     /* no ellipsis clipping */
-      text-overflow: clip;
-      word-break: break-word;
-    }
+    .nav-title { display: flex; flex-direction: column; line-height: 1.1; min-width: 0; }
 
     .nav-title-main {
       font-size: 1.05rem;
       font-weight: 800;
       letter-spacing: 0.08em;
       text-transform: uppercase;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .nav-title-sub {
       font-size: 0.84rem;
       color: var(--text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .nav-links {
@@ -212,8 +200,6 @@
       color: var(--accent-blue);
       border-color: rgba(56, 189, 248, 0.55);
     }
-
-    /* ==================== HERO ==================== */
 
     .hero { padding: 28px 16px 24px; }
 
@@ -288,28 +274,12 @@
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
       cursor: pointer;
       transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
-
-      /* ✅ FIX: force readable white text everywhere */
-      color: #ffffff !important;
-      -webkit-text-fill-color: #ffffff !important;
-    }
-
-    /* ✅ FIX: also force children spans to stay white */
-    .pill * {
-      color: #ffffff !important;
-      -webkit-text-fill-color: #ffffff !important;
     }
 
     .pill-primary {
       border-color: var(--accent-green);
       background: linear-gradient(135deg, #16a34a, #15803d);
-      color: #ecfdf5 !important;
-      -webkit-text-fill-color: #ecfdf5 !important;
-    }
-
-    .pill-primary * {
-      color: #ecfdf5 !important;
-      -webkit-text-fill-color: #ecfdf5 !important;
+      color: #ecfdf5;
     }
 
     .pill-accent {
@@ -331,8 +301,6 @@
     .hero-meta { font-size: 0.86rem; color: var(--text-muted); }
     .hero-meta strong { color: var(--accent-blue); font-weight: 700; }
 
-    /* ==================== SECTIONS ==================== */
-
     section { padding: 32px 0 16px; }
 
     .card {
@@ -353,8 +321,6 @@
     }
     .section-title { font-size: 1.45rem; margin: 0 0 6px; }
     .section-subtitle { font-size: 0.98rem; color: var(--text-muted); max-width: 44rem; }
-
-    /* ==================== SERVICES ==================== */
 
     .services-grid {
       display: grid;
@@ -420,8 +386,6 @@
     .service-toggle-icon { font-size: 1.05rem; transition: transform 0.15s ease; }
     .service-card.active .service-toggle-icon { transform: rotate(180deg); }
 
-    /* ==================== SERVICE AREA ==================== */
-
     .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 14px; }
 
     .chip {
@@ -466,8 +430,6 @@
 
     .fact-value { font-weight: 700; }
 
-    /* ==================== ABOUT ==================== */
-
     .about-layout {
       display: grid;
       grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
@@ -503,8 +465,6 @@
     .highlight-title { font-weight: 800; margin-bottom: 4px; }
     .highlight-sub { color: var(--text-muted); font-size: 0.86rem; }
 
-    /* ==================== PROCESS ==================== */
-
     .process-steps {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
@@ -530,8 +490,6 @@
 
     .step-title { font-weight: 800; margin-bottom: 6px; }
     .step-body { color: var(--text-muted); font-size: 0.9rem; }
-
-    /* ==================== CONTACT ==================== */
 
     .contact-layout {
       display: grid;
@@ -595,8 +553,6 @@
     }
     .contact-hours li { display: flex; justify-content: space-between; gap: 12px; }
 
-    /* ==================== FLOATING CALL BUTTON ==================== */
-
     .call-floating {
       position: fixed;
       right: 16px;
@@ -625,8 +581,6 @@
       100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
     }
 
-    /* ==================== FOOTER ==================== */
-
     footer {
       padding: 18px 16px 22px;
       font-size: 0.86rem;
@@ -644,8 +598,6 @@
       align-items: center;
     }
 
-    /* ==================== REVEAL ==================== */
-
     .reveal {
       opacity: 0;
       transform: translateY(22px);
@@ -653,8 +605,6 @@
     }
 
     .reveal.visible { opacity: 1; transform: translateY(0); }
-
-    /* ==================== RESPONSIVE ==================== */
 
     @media (max-width: 900px) {
       .about-layout, .contact-layout { grid-template-columns: 1fr; }
@@ -773,7 +723,6 @@
           </div>
 
           <div class="services-grid" id="servicesGrid">
-            <!-- service cards (unchanged content) -->
             <div class="service-card" role="button" tabindex="0" aria-expanded="false">
               <div class="service-chip-row">
                 <div class="service-chip">Roof & Structure</div>
@@ -1009,7 +958,13 @@
 
           <div class="contact-layout">
             <div>
-              <form class="contact-form" id="requestForm" action="#" method="post" onsubmit="handleFormSubmit(event)">
+              <form class="contact-form" id="requestForm" action="https://formsubmit.co/robbywalter0@live.com" method="POST">
+                <input type="hidden" name="_subject" value="New RV Repair Request - Walter's Mobile Solutions" />
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_template" value="table" />
+                <input type="hidden" name="_autoresponse" value="Thanks for contacting Walter's Mobile Solutions! We received your request and will contact you soon to schedule your repair." />
+                <input type="hidden" name="_next" value="thank-you.html" />
+
                 <div>
                   <label for="name">Name*</label>
                   <input id="name" name="name" type="text" required />
@@ -1020,7 +975,7 @@
                 </div>
                 <div>
                   <label for="email">Email (optional)</label>
-                  <input id="email" name="email" type="email" placeholder="you@email.com" />
+                  <input id="email" name="_replyto" type="email" placeholder="you@email.com" />
                 </div>
                 <div>
                   <label for="location">Where is the RV located?*</label>
@@ -1071,7 +1026,7 @@
                 <div class="full">
                   <button type="submit" class="pill pill-accent" style="width: 100%; justify-content: center;">
                     <span class="pill-label">Submit Request</span>
-                    <span class="pill-sub" id="submitStatus">A follow-up will be sent directly</span>
+                    <span class="pill-sub">You’ll get a response soon</span>
                   </button>
                 </div>
               </form>
@@ -1184,18 +1139,6 @@
         }
       });
     });
-
-    // Contact form "fake" submit handler (front-end only)
-    function handleFormSubmit(e) {
-      e.preventDefault();
-      const submitStatus = document.getElementById("submitStatus");
-      if (!submitStatus) return;
-      submitStatus.textContent = "Submitting...";
-      setTimeout(() => {
-        submitStatus.textContent = "Thanks — your request has been recorded.";
-      }, 800);
-    }
-    window.handleFormSubmit = handleFormSubmit;
 
     // Footer year
     const yearSpan = document.getElementById("year");
