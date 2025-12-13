@@ -3,491 +3,1289 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Walter's Mobile Solutions</title>
+  <title>Walter's Mobile Solutions | Mobile RV Repair in Nacogdoches, TX</title>
 
-  <!-- Favicon -->
+  <!-- Basic SEO -->
+  <meta name="description" content="Walter's Mobile Solutions provides mobile RV repair in Nacogdoches, TX and surrounding areas. Motorhomes, 5th wheels, and travel trailers – electrical, roof, slide-outs, plumbing, brakes, and more. We come to you." />
+  <meta name="keywords" content="mobile rv repair nacogdoches, rv service, 5th wheel repair, travel trailer repair, motorhome repair, east texas rv service" />
+  <meta name="theme-color" content="#020617" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Walter's Mobile Solutions | Mobile RV Repair" />
+  <meta property="og:description" content="Mobile RV repair serving Nacogdoches, TX and surrounding areas. Motorhome and trailer specialist for on-site RV repairs." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://walterssolutions.com" />
+  <meta property="og:image" content="https://walterssolutions.com/Logo2.webp" />
+
+  <!-- Favicons -->
   <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+  <!-- LocalBusiness Schema (Google) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AutomotiveBusiness",
+    "name": "Walter's Mobile Solutions",
+    "image": "https://walterssolutions.com/Logo2.webp",
+    "description": "Mobile RV repair specializing in motorhomes, 5th wheels, and travel trailers in Nacogdoches, TX and surrounding areas.",
+    "telephone": "+1-936-553-6813",
+    "areaServed": {
+      "@type": "GeoCircle",
+      "geoMidpoint": {
+        "@type": "GeoCoordinates",
+        "latitude": 31.6035,
+        "longitude": -94.6555
+      },
+      "geoRadius": 160934
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Nacogdoches",
+      "addressRegion": "TX",
+      "addressCountry": "US"
+    },
+    "url": "https://walterssolutions.com",
+    "priceRange": "$$"
+  }
+  </script>
 
   <style>
     :root {
+      --bg-main: #020617;
+      --bg-elevated: rgba(15, 23, 42, 0.92);
       --accent-blue: #38bdf8;
       --accent-green: #22c55e;
-      --card-bg: rgba(0, 0, 0, 0.75);
-      --text-light: #f9fafb;
-      --bg-main: #020617;
+      --text-main: #f9fafb;
+      --text-muted: #9ca3af;
+      --border-subtle: rgba(148, 163, 184, 0.25);
+      --shadow-soft: 0 20px 40px rgba(0, 0, 0, 0.6);
     }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family: "Poppins", sans-serif;
       margin: 0;
       padding: 0;
-      padding-top: 240px; /* space for logo + header */
-      background-color: var(--bg-main);
-      background-image: radial-gradient(circle at top, #1f2937 0, #020617 55%);
-      background-repeat: no-repeat;
-      color: var(--text-light);
-      text-align: center;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Poppins", sans-serif;
+      /* ✅ Replaced SVG background with clean gradient */
+      background:
+        radial-gradient(circle at 20% 10%, rgba(56,189,248,0.12), transparent 45%),
+        radial-gradient(circle at 80% 70%, rgba(34,197,94,0.10), transparent 45%),
+        radial-gradient(circle at 50% 120%, rgba(148,163,184,0.10), transparent 55%),
+        var(--bg-main);
+      color: var(--text-main);
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
+
+    a { color: inherit; text-decoration: none; }
+
+    .page-root { min-height: 100vh; position: relative; }
+
+    .max-width {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    /* ==================== HEADER / NAV ==================== */
 
     header {
-      position: fixed;
+      position: sticky;
       top: 0;
-      width: 100%;
-      z-index: 1000;
-      background-color: var(--bg-main);
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: linear-gradient(to right, rgba(2, 6, 23, 0.96), rgba(15, 23, 42, 0.94));
+      border-bottom: 1px solid rgba(15, 23, 42, 0.9);
     }
 
-    .header-logo {
-      width: 100%;
-      max-height: 230px;
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 16px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-logo {
+      height: 84px;
+      width: auto;
       object-fit: contain;
-      opacity: 1;
-      transition: opacity 0.35s ease-out;
-      display: block;
     }
 
-    .section {
-      max-width: 900px;
-      margin: 30px auto 20px;
-      padding: 20px;
-      background: var(--card-bg);
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      text-align: left;
+    .nav-title {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
     }
 
-    .section.services {
-      margin-top: 10px;
+    .nav-title-main {
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
-    .section.center {
-      text-align: center;
+    .nav-title-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
     }
 
-    .section-banner {
-      width: 100%;
-      margin-bottom: 20px;
-      text-align: center;
-      background: transparent;
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      padding: 6px 10px;
+      border-radius: 999px;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .nav-links a:hover {
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--accent-blue);
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
       border: none;
-      padding: 0;
+      color: var(--text-main);
+      font-size: 1.3rem;
+      cursor: pointer;
+      margin-left: 10px;
     }
 
-    .section-banner svg {
-      width: 100%;
-      height: auto;
-      display: block;
-      margin: 0 auto;
-      pointer-events: none;
-      user-select: none;
-      overflow: visible;
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
-    .services-container {
+    .nav-links-mobile {
+      display: none;
+      flex-direction: column;
+      padding: 8px 16px 12px;
+      gap: 8px;
+      border-top: 1px solid rgba(15, 23, 42, 0.9);
+      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.98), #020617 65%);
+    }
+
+    .nav-links-mobile a {
+      padding: 8px;
+      border-radius: 8px;
+      text-align: left;
+      font-size: 0.9rem;
+    }
+
+    .nav-links-mobile a:hover {
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--accent-blue);
+    }
+
+    /* ==================== HERO ==================== */
+
+    .hero {
+      padding: 28px 16px 24px;
+      position: relative;
+    }
+
+    /* ✅ Removed right-side hero SVG; hero is now a single centered column */
+    .hero-inner {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 15px;
+      grid-template-columns: 1fr;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .hero-kicker {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent-blue);
+      margin-bottom: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-kicker span.dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent-blue);
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 3.2vw, 2.6rem);
+      line-height: 1.1;
+      margin: 0 0 10px;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-title span.accent {
+      color: var(--accent-blue);
+      text-shadow: 0 0 18px rgba(56, 189, 248, 0.45);
+    }
+
+    .hero-subtitle {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      max-width: 32rem;
+      margin-bottom: 18px;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .badge {
+      font-size: 0.75rem;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.9);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent-green);
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.95), #020617);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+      cursor: pointer;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+    }
+
+    .pill-primary {
+      border-color: var(--accent-green);
+      background: linear-gradient(135deg, #16a34a, #15803d);
+    }
+
+    .pill-accent {
+      border-color: var(--accent-blue);
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+    }
+
+    .pill .pill-label {
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+      font-size: 0.78rem;
+    }
+
+    .pill .pill-sub {
+      font-size: 0.76rem;
+      opacity: 0.9;
+    }
+
+    .pill:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .hero-meta strong {
+      color: var(--accent-blue);
+      font-weight: 600;
+    }
+
+    /* ==================== SECTION WRAPPER ==================== */
+
+    section { padding: 32px 0 16px; }
+
+    .card {
+      background: var(--bg-elevated);
+      border-radius: 18px;
+      padding: 20px 18px 18px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .section-header { margin-bottom: 14px; }
+
+    .section-eyebrow {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent-blue);
+      margin-bottom: 6px;
+    }
+
+    .section-title { font-size: 1.4rem; margin: 0 0 4px; }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 40rem;
+    }
+
+    /* ==================== SERVICES ==================== */
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 14px;
+      margin-top: 4px;
     }
 
     .service-card {
-      background: rgba(255, 255, 255, 0.08);
-      padding: 15px;
-      border-radius: 8px;
+      background: radial-gradient(circle at top, #020617, #020617 20%, #020617 100%);
+      border-radius: 14px;
+      padding: 12px 12px 10px;
+      border: 1px solid rgba(51, 65, 85, 0.9);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.8);
       cursor: pointer;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-      transition: transform 0.3s, background 0.3s;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+      position: relative;
+      overflow: hidden;
     }
 
     .service-card:hover {
-      transform: scale(1.03);
-      background: rgba(255, 255, 255, 0.18);
-    }
-
-    .service-desc {
-      display: none;
-      font-size: 0.9rem;
-      margin-top: 8px;
-      padding: 8px;
-      border-radius: 5px;
-      background: rgba(0, 0, 0, 0.85);
-    }
-
-    .service-card.active .service-desc {
-      display: block;
-    }
-
-    .cta-row {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      margin-top: 15px;
-      flex-wrap: wrap;
-    }
-
-    .cta-banner {
-      flex: 1 1 220px;
-      padding: 12px 18px;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 600;
-      text-align: center;
-      color: white;
-      transition: 0.2s;
-      border: 1px solid transparent;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-      white-space: nowrap;
-    }
-
-    .cta-banner.primary {
-      background: linear-gradient(135deg, #16a34a, #15803d);
-      border-color: var(--accent-green);
-    }
-
-    .cta-banner.secondary {
-      background: linear-gradient(135deg, #0f172a, #1f2937);
+      transform: translateY(-2px);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
       border-color: var(--accent-blue);
     }
 
-    .cta-banner:hover {
-      transform: translateY(-2px);
-      filter: brightness(1.08);
-    }
-
-    .call-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #22c55e;
-      padding: 15px 20px;
-      border-radius: 999px;
-      color: white;
-      font-weight: 700;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      text-decoration: none;
-      z-index: 999;
+    .service-chip-row {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 8px;
-      transition: 0.2s;
+      margin-bottom: 6px;
     }
 
-    .call-button:hover {
-      transform: scale(1.05);
+    .service-chip {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent-blue);
     }
+
+    .service-title {
+      font-size: 0.96rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .service-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .service-extra {
+      display: none;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      border-top: 1px dashed rgba(51, 65, 85, 0.9);
+      padding-top: 5px;
+      margin-top: 4px;
+    }
+
+    .service-card.active .service-extra { display: block; }
+
+    .service-toggle {
+      font-size: 0.8rem;
+      color: var(--accent-blue);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .service-toggle-icon { font-size: 1rem; }
+
+    /* ==================== SERVICE AREA ==================== */
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 10px 0 14px;
+    }
+
+    .chip {
+      font-size: 0.78rem;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.92);
+      color: var(--text-main);
+    }
+
+    .map-frame {
+      width: 100%;
+      border-radius: 14px;
+      border: none;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.8);
+      margin-top: 2px;
+    }
+
+    .service-facts {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .fact {
+      border-radius: 12px;
+      padding: 8px 10px;
+      background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.95), #020617);
+      border: 1px solid rgba(51, 65, 85, 0.95);
+      font-size: 0.8rem;
+    }
+
+    .fact-label {
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .fact-value { font-weight: 600; }
+
+    /* ==================== ABOUT / STORY ==================== */
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
+      gap: 20px;
+    }
+
+    .about-body {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .about-body p { margin: 0 0 8px; }
+
+    .about-list {
+      margin: 6px 0 0 16px;
+      padding: 0;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .about-list li { margin-bottom: 4px; }
+
+    .about-highlights {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .highlight-card {
+      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.98), #020617);
+      border-radius: 14px;
+      border: 1px solid rgba(51, 65, 85, 0.9);
+      padding: 10px 10px 8px;
+      font-size: 0.84rem;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.8);
+    }
+
+    .highlight-title { font-weight: 600; margin-bottom: 2px; }
+    .highlight-sub { color: var(--text-muted); font-size: 0.78rem; }
+
+    /* ==================== PROCESS ==================== */
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 12px;
+      margin-top: 4px;
+    }
+
+    .step {
+      border-radius: 14px;
+      border: 1px solid rgba(51, 65, 85, 0.9);
+      background: rgba(15, 23, 42, 0.96);
+      padding: 10px 10px 8px;
+      font-size: 0.85rem;
+    }
+
+    .step-badge {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent-blue);
+      margin-bottom: 4px;
+    }
+
+    .step-title { font-weight: 600; margin-bottom: 3px; }
+
+    .step-body {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    /* ==================== CONTACT / SCHEDULE ==================== */
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
+      gap: 18px;
+    }
+
+    .contact-form {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .contact-form .full { grid-column: 1 / -1; }
+
+    label {
+      display: block;
+      font-size: 0.78rem;
+      margin-bottom: 3px;
+      color: var(--text-muted);
+    }
+
+    input, select, textarea {
+      width: 100%;
+      border-radius: 9px;
+      border: 1px solid rgba(51, 65, 85, 0.95);
+      background: rgba(15, 23, 42, 0.96);
+      color: var(--text-main);
+      font-size: 0.8rem;
+      padding: 7px 9px;
+      outline: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      font-family: inherit;
+      resize: vertical;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--accent-blue);
+      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.4);
+    }
+
+    textarea {
+      min-height: 80px;
+      max-height: 200px;
+    }
+
+    .contact-footnote {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    .contact-side {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .contact-side h4 {
+      margin: 4px 0 4px;
+      font-size: 0.92rem;
+      color: var(--text-main);
+    }
+
+    .contact-hours {
+      list-style: none;
+      padding: 0;
+      margin: 4px 0 6px;
+      font-size: 0.8rem;
+    }
+
+    .contact-hours li { display: flex; justify-content: space-between; }
+
+    /* ==================== FLOATING CALL BUTTON ==================== */
+
+    .call-floating {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 40;
+    }
+
+    .call-floating a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 999px;
+      padding: 10px 14px;
+      background: linear-gradient(135deg, #16a34a, #15803d);
+      color: #ecfdf5;
+      font-size: 0.86rem;
+      font-weight: 600;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.8);
+      border: 1px solid rgba(22, 163, 74, 0.9);
+      animation: pulse-ring 2.4s infinite;
+    }
+
+    @keyframes pulse-ring {
+      0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6); }
+      60% { box-shadow: 0 0 0 18px rgba(34, 197, 94, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+    }
+
+    /* ==================== FOOTER ==================== */
 
     footer {
-      padding: 20px;
-      color: #cbd5e1;
-      font-size: 0.9rem;
+      padding: 18px 16px 22px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(15, 23, 42, 0.95);
+      margin-top: 18px;
+      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.98), #020617 65%);
     }
 
-    footer a {
-      color: #cbd5e1;
-      text-decoration: none;
+    footer .max-width {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: center;
     }
 
-    footer a:hover {
-      text-decoration: underline;
-    }
+    /* ==================== ANIMATIONS / SCROLL ==================== */
 
-    .slide-in {
+    .reveal {
       opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      transform: translateY(22px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
     }
 
-    .slide-in.visible {
+    .reveal.visible {
       opacity: 1;
       transform: translateY(0);
     }
 
-    @media (max-width: 600px) {
-      body {
-        padding-top: 220px;
-      }
+    /* ==================== RESPONSIVE ==================== */
 
-      .section {
-        margin: 25px 10px 15px;
-        padding: 16px;
-      }
+    @media (max-width: 900px) {
+      .about-layout,
+      .contact-layout { grid-template-columns: 1fr; }
+    }
 
-      .section.services {
-        margin-top: 8px;
-      }
+    @media (max-width: 760px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: block; }
+      .nav { padding: 8px 12px; }
+      .nav-logo { height: 70px; }
+      .hero { padding-top: 18px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title { font-size: 1.7rem; }
+      .hero-ctas { flex-direction: column; }
+      .contact-form { grid-template-columns: 1fr; }
     }
   </style>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const header = document.querySelector("header");
-      const headerLogo = document.querySelector(".header-logo");
-
-      if (header && headerLogo) {
-        window.addEventListener("scroll", () => {
-          const fadeOutPoint = 30;
-          let opacity = 1 - window.scrollY / fadeOutPoint;
-          if (opacity < 0) opacity = 0;
-          if (opacity > 1) opacity = 1;
-
-          headerLogo.style.opacity = opacity;
-          header.style.opacity = opacity;
-          header.style.pointerEvents = opacity === 0 ? "none" : "auto";
-        });
-      }
-
-      const cards = document.querySelectorAll(".service-card");
-      cards.forEach((card) => {
-        card.addEventListener("click", () => {
-          const open = card.classList.contains("active");
-          cards.forEach((c) => c.classList.remove("active"));
-          if (!open) card.classList.add("active");
-        });
-      });
-
-      const slideItems = document.querySelectorAll(".slide-in");
-      if ("IntersectionObserver" in window) {
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-                observer.unobserve(entry.target);
-              }
-            });
-          },
-          { threshold: 0.15 }
-        );
-        slideItems.forEach((el) => observer.observe(el));
-      } else {
-        slideItems.forEach((el) => el.classList.add("visible"));
-      }
-    });
-  </script>
 </head>
 
 <body>
-  <!-- Header -->
-  <header>
-    <img
-      src="https://letsmakemoney936.github.io/WaltersSolutions/Logo2.webp"
-      alt="Walter's Mobile Solutions Logo"
-      class="header-logo"
-    />
-  </header>
+  <div class="page-root">
 
-  <!-- 1️⃣ OUR SERVICES -->
-  <section class="section services">
-    <div class="section-banner slide-in">
-      <svg viewBox="0 0 2000 350" aria-hidden="true">
-        <defs>
-          <linearGradient id="chromeWide1" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#ffffff"/>
-            <stop offset="25%" stop-color="#d4d7dc"/>
-            <stop offset="50%" stop-color="#8a8f98"/>
-            <stop offset="75%" stop-color="#4b4f55"/>
-            <stop offset="100%" stop-color="#0b0d10"/>
-          </linearGradient>
-        </defs>
+    <!-- HEADER -->
+    <header>
+      <div class="max-width">
+        <nav class="nav">
+          <div class="nav-left">
+            <!-- ✅ Relative path (no github.io) -->
+            <img
+              src="Logo2.webp"
+              alt="Walter's Mobile Solutions Logo"
+              class="nav-logo"
+            />
+            <div class="nav-title">
+              <div class="nav-title-main">Walter's Mobile Solutions</div>
+              <div class="nav-title-sub">Mobile RV Repair • Nacogdoches, TX</div>
+            </div>
+          </div>
+          <div class="nav-right">
+            <div class="nav-links">
+              <a href="#services">Services</a>
+              <a href="#service-area">Service Area</a>
+              <a href="#about">About</a>
+              <a href="#contact">Schedule</a>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation" id="navToggle">☰</button>
+          </div>
+        </nav>
+        <div class="nav-links-mobile" id="navMobile">
+          <a href="#services">Services</a>
+          <a href="#service-area">Service Area</a>
+          <a href="#about">About</a>
+          <a href="#contact">Schedule</a>
+        </div>
+      </div>
+    </header>
 
-        <text
-          x="50%"
-          y="45%"
-          text-anchor="middle"
-          fill="url(#chromeWide1)"
-          font-size="200"
-          font-weight="900"
-          letter-spacing="30"
-          dominant-baseline="middle"
-          style="font-family: 'Arial Black', system-ui, sans-serif; paint-order: stroke; stroke: #000; stroke-width: 18px;"
-        >
-          OUR SERVICES
-        </text>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="max-width hero-inner">
+        <div class="hero-left reveal">
+          <div class="hero-kicker">
+            <span class="dot"></span>
+            Mobile RV Repair • East Texas
+          </div>
+          <h1 class="hero-title">
+            Your <span class="accent">Motorhome &amp; RV Specialist</span>, straight to your site.
+          </h1>
+          <p class="hero-subtitle">
+            Mobile RV repair for 5th wheels, travel trailers, and motorhomes in Nacogdoches and surrounding
+            East Texas areas – focused on real-world problems like roof leaks, electrical issues, slide-out
+            problems, and water system headaches.
+          </p>
 
-        <rect
-          x="0"
-          y="260"
-          width="2000"
-          height="20"
-          rx="10"
-          fill="#38bdf8"
-        />
-      </svg>
+          <div class="hero-badges">
+            <div class="badge">
+              <span class="badge-dot"></span>
+              5th Wheels • Travel Trailers • Motorhomes
+            </div>
+            <div class="badge">
+              ⚡ Electrical • 🔧 Mechanical • 💧 Plumbing • 🏠 Roofs
+            </div>
+          </div>
+
+          <div class="hero-ctas">
+            <a href="tel:19365536813" class="pill pill-primary">
+              <span class="pill-label">Call Now</span>
+              <span class="pill-sub">Tap to start your repair</span>
+            </a>
+            <button class="pill pill-accent" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+              <span class="pill-label">Schedule Online</span>
+              <span class="pill-sub">Answer a few quick questions</span>
+            </button>
+          </div>
+
+          <div class="hero-meta">
+            Serving <strong>Nacogdoches, Lufkin, and a 100-mile radius</strong> with onsite RV repair.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="max-width">
+        <div class="card reveal">
+          <div class="section-header">
+            <div class="section-eyebrow">Core Services</div>
+            <h2 class="section-title">Mobile RV Repair for Real-World Problems</h2>
+            <p class="section-subtitle">
+              From roof leaks to mystery 12-volt issues, Walter's Mobile Solutions is built around the
+              jobs RV owners actually face – not just what’s easy to bill at a shop. Tap any service to
+              see more details.
+            </p>
+          </div>
+
+          <div class="services-grid" id="servicesGrid">
+            <div class="service-card">
+              <div class="service-chip-row">
+                <div class="service-chip">Roof & Structure</div>
+                <div class="service-toggle">Details <span class="service-toggle-icon">▾</span></div>
+              </div>
+              <div class="service-title">Roof Repair, Resealing & Leak Tracking</div>
+              <div class="service-desc">
+                Soft spots, sagging, or stains inside? The water is tracked to the source and sealed correctly.
+              </div>
+              <div class="service-extra">
+                Complete roof inspections, patching and sealing, vent and skylight resealing, awning and
+                trim sealing, and long-term maintenance guidance to prevent future damage.
+              </div>
+            </div>
+
+            <div class="service-card">
+              <div class="service-chip-row">
+                <div class="service-chip">Electrical</div>
+                <div class="service-toggle">Details <span class="service-toggle-icon">▾</span></div>
+              </div>
+              <div class="service-title">12V & 120V Electrical Diagnostics</div>
+              <div class="service-desc">
+                Lights flickering, batteries not charging, or breakers tripping for no reason?
+              </div>
+              <div class="service-extra">
+                House 12V systems, converters, basic inverter troubleshooting, shore power issues, GFCI
+                trips, fuses, wiring faults, and battery health checks – with a focus on safe, clean fixes.
+              </div>
+            </div>
+
+            <div class="service-card">
+              <div class="service-chip-row">
+                <div class="service-chip">Water & Plumbing</div>
+                <div class="service-toggle">Details <span class="service-toggle-icon">▾</span></div>
+              </div>
+              <div class="service-title">Plumbing Leaks & Water System Issues</div>
+              <div class="service-desc">
+                Leaks under sinks, soft floors, or pumps cycling non-stop are located and corrected.
+              </div>
+              <div class="service-extra">
+                PEX and fittings, water pump diagnosis, faucets, toilets, tank valves, and winterization
+                and de-winterization support so your rig is ready for the road.
+              </div>
+            </div>
+
+            <div class="service-card">
+              <div class="service-chip-row">
+                <div class="service-chip">Slides & Leveling</div>
+                <div class="service-toggle">Details <span class="service-toggle-icon">▾</span></div>
+              </div>
+              <div class="service-title">Slide-Out & Structural Adjustments</div>
+              <div class="service-desc">
+                Binding slides, bad seals, or that “something doesn’t look right” feeling when extending.
+              </div>
+              <div class="service-extra">
+                Visual inspection, seal checks, minor adjustments, lubrication points, and identifying
+                issues before they turn into full slide failures or water intrusion.
+              </div>
+            </div>
+
+            <div class="service-card">
+              <div class="service-chip-row">
+                <div class="service-chip">Chassis & Running Gear</div>
+                <div class="service-toggle">Details <span class="service-toggle-icon">▾</span></div>
+              </div>
+              <div class="service-title">Brakes, Hubs & Suspension Checks</div>
+              <div class="service-desc">
+                Uneven tire wear, strange noises, or floaty handling on the way to the campsite.
+              </div>
+              <div class="service-extra">
+                Visual inspections of brakes, hubs, bearings, and suspension components, plus
+                recommendations to keep the rig safe on Texas roads.
+              </div>
+            </div>
+
+            <div class="service-card">
+              <div class="service-chip-row">
+                <div class="service-chip">Interior & Exterior</div>
+                <div class="service-toggle">Details <span class="service-toggle-icon">▾</span></div>
+              </div>
+              <div class="service-title">Cabinetry, Doors & Cosmetic Repairs</div>
+              <div class="service-desc">
+                Sagging doors, loose trim, warped panels, and general wear are tightened up.
+              </div>
+              <div class="service-extra">
+                Cabinet adjustments, trim re-attachment, hardware swaps, minor wall, floor, and door
+                repairs that make the RV feel solid again.
+              </div>
+            </div>
+
+            <div class="service-card">
+              <div class="service-chip-row">
+                <div class="service-chip">Battery & Charging</div>
+                <div class="service-toggle">Details <span class="service-toggle-icon">▾</span></div>
+              </div>
+              <div class="service-title">Battery & Charging System Health</div>
+              <div class="service-desc">
+                Dead batteries after a weekend or confusion about the power setup?
+              </div>
+              <div class="service-extra">
+                Battery testing, cable and lug checks, basic charge circuit diagnostics, and plain-English
+                explanations of what the system can realistically handle.
+              </div>
+            </div>
+
+            <div class="service-card">
+              <div class="service-chip-row">
+                <div class="service-chip">Inspections</div>
+                <div class="service-toggle">Details <span class="service-toggle-icon">▾</span></div>
+              </div>
+              <div class="service-title">Pre-Trip & Pre-Purchase Checks</div>
+              <div class="service-desc">
+                Planning a long haul or looking at an RV near Nacogdoches?
+              </div>
+              <div class="service-extra">
+                Visual inspections of critical systems, roof, frame, slides, and water intrusion points.
+                You receive a clear rundown of what’s solid and what needs attention.
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 12px; font-size: 0.8rem; color: var(--text-muted);">
+            Don’t see your exact issue listed? <strong>Chances are it can be handled.</strong> Use the
+            form below or call to describe what’s going on with your rig.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICE AREA -->
+    <section id="service-area">
+      <div class="max-width">
+        <div class="card reveal">
+          <div class="section-header">
+            <div class="section-eyebrow">Service Area</div>
+            <h2 class="section-title">Nacogdoches-Based, East Texas Focused</h2>
+            <p class="section-subtitle">
+              Walter's Mobile Solutions is based in <strong>Nacogdoches, Texas</strong> and typically serves
+              within about <strong>100 miles</strong>. If you’re just outside that radius and need help on a trip,
+              reach out – options can be discussed.
+            </p>
+          </div>
+
+          <div class="chips">
+            <div class="chip">Nacogdoches</div>
+            <div class="chip">Lufkin</div>
+            <div class="chip">Garrison</div>
+            <div class="chip">Central Heights</div>
+            <div class="chip">Douglas</div>
+            <div class="chip">Woden</div>
+            <div class="chip">Appleby</div>
+            <div class="chip">Surrounding campgrounds &amp; storage lots</div>
+          </div>
+
+          <iframe
+            class="map-frame"
+            src="https://www.google.com/maps?q=Nacogdoches,TX&output=embed"
+            height="260"
+            loading="lazy"
+            title="Service Area Map - Nacogdoches, TX"
+          ></iframe>
+
+          <div class="service-facts">
+            <div class="fact">
+              <div class="fact-label">Radius</div>
+              <div class="fact-value">Up to ~100 miles from Nacogdoches</div>
+            </div>
+            <div class="fact">
+              <div class="fact-label">Service Type</div>
+              <div class="fact-value">Fully mobile – onsite at your location</div>
+            </div>
+            <div class="fact">
+              <div class="fact-label">Rig Types</div>
+              <div class="fact-value">5th wheels, travel trailers, motorhomes</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="max-width">
+        <div class="card reveal">
+          <div class="section-header">
+            <div class="section-eyebrow">About</div>
+            <h2 class="section-title">Built in the RV Capital, Serving East Texas</h2>
+          </div>
+
+          <div class="about-layout">
+            <div class="about-body">
+              <p>
+                Walter's Mobile Solutions is owned and operated by Robert Walter in
+                <strong>Nacogdoches, Texas</strong>. Robert grew up around RVs and spent years in
+                <strong>Elkhart, Indiana</strong> – the heart of the RV world – working for
+                <strong>Lippert</strong> and <strong>Forest River</strong>.
+              </p>
+              <p>
+                From frames and axles to roofs and final finishes, that factory-level understanding
+                now supports RV owners directly at their homes, storage lots, and campsites across
+                East Texas.
+              </p>
+              <ul class="about-list">
+                <li>13+ years of hands-on RV industry experience</li>
+                <li>Focus on long-term, not just “quick patch” repairs</li>
+                <li>Clear explanations so you understand what failed and why</li>
+              </ul>
+              <p>
+                The goal is simple: help you feel confident towing, camped, or full-timing – without the stress and
+                delays of dealership backlogs.
+              </p>
+            </div>
+
+            <div class="about-highlights">
+              <div class="highlight-card">
+                <div class="highlight-title">Factory Experience</div>
+                <div class="highlight-sub">
+                  Lippert &amp; Forest River background – frames, walls, roofs, and the small details that keep water out
+                  and everything square.
+                </div>
+              </div>
+              <div class="highlight-card">
+                <div class="highlight-title">Mobile &amp; Flexible</div>
+                <div class="highlight-sub">
+                  Work is done around your schedule, your site, and your travel plans. No need to haul the rig to a shop
+                  for everything.
+                </div>
+              </div>
+              <div class="highlight-card">
+                <div class="highlight-title">Straightforward Communication</div>
+                <div class="highlight-sub">
+                  You’ll know what was done, why it was needed, and what to watch for in the future.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section>
+      <div class="max-width">
+        <div class="card reveal">
+          <div class="section-header">
+            <div class="section-eyebrow">How It Works</div>
+            <h2 class="section-title">Simple, Straightforward Process</h2>
+          </div>
+
+          <div class="process-steps">
+            <div class="step">
+              <div class="step-badge">Step 1</div>
+              <div class="step-title">Share what’s going on</div>
+              <div class="step-body">
+                Call or use the schedule form below. Details like when the issue started, what changed, and any sounds
+                or smells help narrow things down fast.
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-badge">Step 2</div>
+              <div class="step-title">Confirm time &amp; location</div>
+              <div class="step-body">
+                The visit time, site location, parking, and power situation are confirmed so there are no surprises when
+                work begins.
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-badge">Step 3</div>
+              <div class="step-title">Onsite repair &amp; walkthrough</div>
+              <div class="step-body">
+                The issue is diagnosed and repaired, followed by a walkthrough of what was done and what to watch for
+                in the future.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT / SCHEDULE -->
+    <section id="contact">
+      <div class="max-width">
+        <div class="card reveal">
+          <div class="section-header">
+            <div class="section-eyebrow">Schedule Repair</div>
+            <h2 class="section-title">Tell Me What’s Going On With Your RV</h2>
+            <p class="section-subtitle">
+              Fill out this quick form or call directly. This doesn’t lock you into anything – it simply gives enough
+              information to understand your situation and get you on the calendar.
+            </p>
+          </div>
+
+          <div class="contact-layout">
+            <div>
+              <form class="contact-form" id="requestForm" action="#" method="post" onsubmit="handleFormSubmit(event)">
+                <div>
+                  <label for="name">Name*</label>
+                  <input id="name" name="name" type="text" required />
+                </div>
+                <div>
+                  <label for="phone">Phone*</label>
+                  <input id="phone" name="phone" type="tel" required />
+                </div>
+                <div>
+                  <label for="email">Email (optional)</label>
+                  <input id="email" name="email" type="email" />
+                </div>
+                <div>
+                  <label for="location">Where is the RV located?*</label>
+                  <input id="location" name="location" type="text" placeholder="Park, campground, city, or address" required />
+                </div>
+                <div>
+                  <label for="rigType">Rig Type*</label>
+                  <select id="rigType" name="rigType" required>
+                    <option value="">Select one</option>
+                    <option value="5th wheel">5th Wheel</option>
+                    <option value="travel trailer">Travel Trailer</option>
+                    <option value="motorhome">Motorhome</option>
+                    <option value="toy hauler">Toy Hauler</option>
+                    <option value="other">Other / Not sure</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="issueType">Main Issue*</label>
+                  <select id="issueType" name="issueType" required>
+                    <option value="">Select one</option>
+                    <option value="roof leak">Roof / Water Leak</option>
+                    <option value="electrical">Electrical / Power</option>
+                    <option value="plumbing">Plumbing / Water System</option>
+                    <option value="slide">Slide-Out / Leveling</option>
+                    <option value="brakes">Brakes / Suspension / Running Gear</option>
+                    <option value="interior">Interior / Cosmetic</option>
+                    <option value="inspection">Pre-Trip / Pre-Purchase Check</option>
+                    <option value="other">Something Else</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="preferredDate">Preferred Date</label>
+                  <input id="preferredDate" name="preferredDate" type="date" />
+                </div>
+                <div>
+                  <label for="urgency">How urgent is this?</label>
+                  <select id="urgency" name="urgency">
+                    <option value="soon">Within the next week</option>
+                    <option value="flexible">Flexible timing</option>
+                    <option value="traveling">Traveling through &amp; need help if possible</option>
+                  </select>
+                </div>
+                <div class="full">
+                  <label for="description">Brief description of the issue*</label>
+                  <textarea
+                    id="description"
+                    name="description"
+                    required
+                    placeholder="Example: ‘Water drip above the slide when it rains’, ‘Lights dim when I run the water pump’, ‘Soft spot by the entry door’, etc."
+                  ></textarea>
+                </div>
+                <div class="full">
+                  <button type="submit" class="pill pill-accent" style="width: 100%; justify-content: center;">
+                    <span class="pill-label">Submit Request</span>
+                    <span class="pill-sub" id="submitStatus">A follow-up will be sent directly</span>
+                  </button>
+                </div>
+              </form>
+              <div class="contact-footnote">
+                By submitting, you’re simply starting a conversation. Your details are reviewed to confirm that the
+                issue is something that can be handled, and then next steps are discussed.
+              </div>
+            </div>
+
+            <div class="contact-side">
+              <h4>Prefer to talk it through?</h4>
+              <p>
+                Call or text: <strong><a href="tel:19365536813">(936) 553-6813</a></strong><br />
+                If a call can’t be answered right away, it will be returned as soon as it’s safe to do so.
+              </p>
+
+              <h4>Typical Hours (Subject to Change)</h4>
+              <ul class="contact-hours">
+                <li><span>Mon–Fri</span><span>9:00am – 6:00pm</span></li>
+                <li><span>Sat</span><span>By appointment</span></li>
+                <li><span>Sun</span><span>Emergency consideration only</span></li>
+              </ul>
+
+              <p>
+                If you’re dealing with something that could become unsafe – leaking roof, electrical burning smell,
+                or braking concerns – please mention that clearly in your message or call.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FLOATING CALL BUTTON -->
+    <div class="call-floating">
+      <a href="tel:19365536813">📞 Call Now</a>
     </div>
 
-    <div class="services-container">
-      <div class="service-card slide-in">
-        <li>Roof Repair &amp; Sealing</li>
-        <div class="service-desc">
-          Expert sealing and repair for roof leaks to protect your RV from water damage.
-        </div>
+    <!-- FOOTER -->
+    <footer>
+      <div class="max-width">
+        <div>© <span id="year"></span> Walter's Mobile Solutions • Nacogdoches, TX</div>
+        <div>Mobile RV Repair • Motorhomes • 5th Wheels • Travel Trailers</div>
       </div>
+    </footer>
+  </div>
 
-      <div class="service-card slide-in">
-        <li>Electrical System Troubleshooting</li>
-        <div class="service-desc">
-          Diagnosing and repairing 12V and 120V RV electrical issues.
-        </div>
-      </div>
+  <script>
+    // Mobile nav toggle
+    const navToggle = document.getElementById("navToggle");
+    const navMobile = document.getElementById("navMobile");
+    if (navToggle && navMobile) {
+      navToggle.addEventListener("click", () => {
+        const isOpen = navMobile.style.display === "flex";
+        navMobile.style.display = isOpen ? "none" : "flex";
+      });
+      navMobile.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+          navMobile.style.display = "none";
+        });
+      });
+    }
 
-      <div class="service-card slide-in">
-        <li>Plumbing Repairs &amp; Water System Maintenance</li>
-        <div class="service-desc">
-          Leak repair, water pump service, and full plumbing diagnostics.
-        </div>
-      </div>
+    // Reveal on scroll
+    const revealEls = document.querySelectorAll(".reveal");
+    if ("IntersectionObserver" in window) {
+      const obs = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              obs.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+      revealEls.forEach(el => obs.observe(el));
+    } else {
+      revealEls.forEach(el => el.classList.add("visible"));
+    }
 
-      <div class="service-card slide-in">
-        <li>Slide-Out Repairs &amp; Adjustments</li>
-        <div class="service-desc">
-          Slide-out alignment, seal replacement, and system repairs.
-        </div>
-      </div>
+    // Services accordion behavior
+    const serviceCards = document.querySelectorAll(".service-card");
+    serviceCards.forEach(card => {
+      card.addEventListener("click", () => {
+        const isActive = card.classList.contains("active");
+        serviceCards.forEach(c => c.classList.remove("active"));
+        if (!isActive) card.classList.add("active");
+      });
+    });
 
-      <div class="service-card slide-in">
-        <li>Appliance Repairs</li>
-        <div class="service-desc">
-          Service for common RV appliances including AC, water heaters, and fans.
-        </div>
-      </div>
+    // Contact form "fake" submit handler (front-end only)
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const submitStatus = document.getElementById("submitStatus");
+      if (!submitStatus) return;
+      submitStatus.textContent = "Submitting...";
+      setTimeout(() => {
+        submitStatus.textContent = "Thanks – your request has been recorded.";
+      }, 800);
+    }
+    window.handleFormSubmit = handleFormSubmit;
 
-      <div class="service-card slide-in">
-        <li>Brake &amp; Suspension</li>
-        <div class="service-desc">
-          Inspection and repair of brakes, axles, hubs, and suspension components.
-        </div>
-      </div>
-
-      <div class="service-card slide-in">
-        <li>Interior &amp; Exterior Repairs</li>
-        <div class="service-desc">
-          Cosmetic and structural repairs for walls, trim, doors, and exterior damage.
-        </div>
-      </div>
-
-      <div class="service-card slide-in">
-        <li>Battery &amp; Charging System Maintenance</li>
-        <div class="service-desc">
-          Battery testing, replacement, wiring repair, and charging diagnostics.
-        </div>
-      </div>
-
-      <div class="service-card slide-in">
-        <li>Leak Detection &amp; Prevention</li>
-        <div class="service-desc">
-          Finding leaks early and sealing before causing major RV damage.
-        </div>
-      </div>
-    </div>
-
-    <div class="cta-row slide-in">
-      <a href="Services.html" class="cta-banner secondary">View All Services</a>
-      <a href="schedule.html" class="cta-banner primary">Schedule Repair</a>
-    </div>
-  </section>
-
-  <!-- 2️⃣ SERVICE AREA -->
-  <section class="section service-area center slide-in">
-    <div class="section-banner slide-in">
-      <svg viewBox="0 0 2000 350" aria-hidden="true">
-        <defs>
-          <linearGradient id="chromeWide2" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#ffffff"/>
-            <stop offset="25%" stop-color="#d4d7dc"/>
-            <stop offset="50%" stop-color="#8a8f98"/>
-            <stop offset="75%" stop-color="#4b4f55"/>
-            <stop offset="100%" stop-color="#0b0d10"/>
-          </linearGradient>
-        </defs>
-
-        <text
-          x="50%"
-          y="45%"
-          text-anchor="middle"
-          fill="url(#chromeWide2)"
-          font-size="200"
-          font-weight="900"
-          letter-spacing="30"
-          dominant-baseline="middle"
-          style="font-family: 'Arial Black', system-ui, sans-serif; paint-order: stroke; stroke: #000; stroke-width: 18px;"
-        >
-          SERVICE AREA
-        </text>
-
-        <rect
-          x="0"
-          y="260"
-          width="2000"
-          height="20"
-          rx="10"
-          fill="#38bdf8"
-        />
-      </svg>
-    </div>
-    <p>Nacogdoches and surrounding areas within 100 miles.</p>
-    <iframe
-      src="https://www.google.com/maps?q=Nacogdoches,TX&output=embed"
-      width="100%"
-      height="300"
-      style="border-radius: 10px; border: 0"
-      loading="lazy"
-    ></iframe>
-  </section>
-
-  <!-- 3️⃣ ABOUT US -->
-  <section class="section about slide-in">
-    <div class="section-banner slide-in">
-      <svg viewBox="0 0 2000 350" aria-hidden="true">
-        <defs>
-          <linearGradient id="chromeWide3" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#ffffff"/>
-            <stop offset="25%" stop-color="#d4d7dc"/>
-            <stop offset="50%" stop-color="#8a8f98"/>
-            <stop offset="75%" stop-color="#4b4f55"/>
-            <stop offset="100%" stop-color="#0b0d10"/>
-          </linearGradient>
-        </defs>
-
-        <text
-          x="50%"
-          y="45%"
-          text-anchor="middle"
-          fill="url(#chromeWide3)"
-          font-size="200"
-          font-weight="900"
-          letter-spacing="30"
-          dominant-baseline="middle"
-          style="font-family: 'Arial Black', system-ui, sans-serif; paint-order: stroke; stroke: #000; stroke-width: 18px;"
-        >
-          ABOUT US
-        </text>
-
-        <rect
-          x="0"
-          y="260"
-          width="2000"
-          height="20"
-          rx="10"
-          fill="#38bdf8"
-        />
-      </svg>
-    </div>
-    <p>
-      With 13 years in the RV industry, I’ve built everything from frames to roofing,
-      working at Lippert and Forest River in Elkhart, Indiana.
-    </p>
-    <p>
-      Walter’s Mobile Solutions exists to bring that same expertise directly to your RV —
-      providing reliable, honest, and skilled repair work wherever you are.
-    </p>
-  </section>
-
-  <footer>
-    <p>
-      &copy; 2025 Walter's Mobile Solutions |
-      <a href="tel:9365536813">(936) 553-6813</a>
-    </p>
-  </footer>
-
-  <a href="tel:9365536813" class="call-button">📞 Call Now</a>
+    // Footer year
+    const yearSpan = document.getElementById("year");
+    if (yearSpan) {
+      yearSpan.textContent = new Date().getFullYear();
+    }
+  </script>
 </body>
 </html>
