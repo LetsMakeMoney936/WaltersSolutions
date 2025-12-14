@@ -95,6 +95,9 @@
       padding: 0 16px;
     }
 
+    /* ✅ TEMP HIDE HELPER */
+    .is-hidden { display: none !important; }
+
     /* ==================== HEADER / NAV ==================== */
 
     header {
@@ -290,7 +293,6 @@
       color: #ecfdf5;
     }
 
-    /* ✅ Force the "accent" pills/buttons to stay WHITE (fixes black text) */
     .pill-accent {
       border-color: var(--accent-blue);
       background: linear-gradient(135deg, #0f172a, #1e293b);
@@ -677,7 +679,6 @@
             <div class="nav-links">
               <a href="#services">Services</a>
               <a href="#service-area">Service Area</a>
-              <a href="#about">About</a>
               <a href="#contact">Schedule</a>
             </div>
 
@@ -688,7 +689,6 @@
         <div class="nav-links-mobile" id="navMobile">
           <a href="#services">Services</a>
           <a href="#service-area">Service Area</a>
-          <a href="#about">About</a>
           <a href="#contact">Schedule</a>
         </div>
       </div>
@@ -755,6 +755,7 @@
           </div>
 
           <div class="services-grid" id="servicesGrid">
+            <!-- (services unchanged) -->
             <div class="service-card" role="button" tabindex="0" aria-expanded="false">
               <div class="service-chip-row">
                 <div class="service-chip">Roof & Structure</div>
@@ -898,8 +899,8 @@
       </div>
     </section>
 
-    <!-- ABOUT -->
-    <section id="about">
+    <!-- ABOUT (TEMP HIDDEN) -->
+    <section id="about" class="is-hidden">
       <div class="max-width">
         <div class="card reveal">
           <div class="section-header">
@@ -946,8 +947,8 @@
       </div>
     </section>
 
-    <!-- PROCESS -->
-    <section>
+    <!-- HOW IT WORKS (TEMP HIDDEN) -->
+    <section class="is-hidden">
       <div class="max-width">
         <div class="card reveal">
           <div class="section-header">
@@ -1016,7 +1017,6 @@
 
                 <div>
                   <label for="email">Email (optional)</label>
-                  <!-- ✅ Must be name="email" for autoresponse to work -->
                   <input id="email" name="email" type="email" placeholder="you@email.com" />
                 </div>
 
@@ -1123,7 +1123,6 @@
   </div>
 
   <script>
-    // Mobile nav toggle (cleaner + ARIA)
     const navToggle = document.getElementById("navToggle");
     const navMobile = document.getElementById("navMobile");
 
@@ -1148,7 +1147,6 @@
       });
     }
 
-    // Reveal on scroll
     const revealEls = document.querySelectorAll(".reveal");
     if ("IntersectionObserver" in window) {
       const obs = new IntersectionObserver(entries => {
@@ -1164,7 +1162,6 @@
       revealEls.forEach(el => el.classList.add("visible"));
     }
 
-    // Services accordion (click + keyboard)
     const serviceCards = document.querySelectorAll(".service-card");
 
     function toggleCard(card) {
@@ -1189,7 +1186,6 @@
       });
     });
 
-    // Footer year
     const yearSpan = document.getElementById("year");
     if (yearSpan) yearSpan.textContent = new Date().getFullYear();
   </script>
