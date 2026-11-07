@@ -502,6 +502,42 @@
 
     .fact-value { font-weight: 700; }
 
+    /* ==================== PRICING ==================== */
+
+    .price-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .price-card {
+      border-radius: 14px;
+      padding: 14px 14px 12px;
+      background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.95), #020617);
+      border: 1px solid rgba(51, 65, 85, 0.95);
+    }
+
+    .price-card .fact-label { margin-bottom: 4px; }
+    .price-amount { font-size: 1.9rem; font-weight: 800; color: var(--text-main); line-height: 1.15; }
+    .price-amount small { font-size: 1rem; font-weight: 700; color: var(--text-muted); }
+    .price-note { font-size: 0.9rem; color: var(--text-muted); margin-top: 6px; }
+
+    .price-promise {
+      margin: 14px 0 0;
+      padding: 0;
+      list-style: none;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+    .price-promise li { padding-left: 22px; position: relative; margin-bottom: 6px; }
+    .price-promise li::before {
+      content: "";
+      position: absolute; left: 4px; top: 0.55em;
+      width: 8px; height: 8px; border-radius: 999px;
+      background: var(--accent-green);
+    }
+
     /* ==================== ABOUT ==================== */
 
     .about-layout {
@@ -748,6 +784,7 @@
           <div class="nav-right">
             <div class="nav-links">
               <a href="#services">Services</a>
+              <a href="#pricing">Pricing</a>
               <a href="#service-area">Service Area</a>
               <a href="#contact">Schedule</a>
             </div>
@@ -758,6 +795,7 @@
 
         <div class="nav-links-mobile" id="navMobile">
           <a href="#services">Services</a>
+          <a href="#pricing">Pricing</a>
           <a href="#service-area">Service Area</a>
           <a href="#contact">Schedule</a>
         </div>
@@ -928,6 +966,44 @@
           <div style="margin-top: 12px; font-size: 0.9rem; color: var(--text-muted);">
             Don’t see your exact issue listed? <strong>Chances are it can be handled.</strong> Use the form below or call.
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing">
+      <div class="max-width">
+        <div class="card reveal">
+          <div class="section-header">
+            <div class="section-eyebrow">Pricing</div>
+            <h2 class="section-title">Straightforward Pricing</h2>
+            <p class="section-subtitle">
+              One flat service call anywhere in the service area. No mileage charges, no surprises.
+            </p>
+          </div>
+
+          <div class="price-grid">
+            <div class="price-card">
+              <div class="fact-label">Service call</div>
+              <div class="price-amount">$75</div>
+              <div class="price-note">Anywhere within 100 miles of Nacogdoches</div>
+            </div>
+            <div class="price-card">
+              <div class="fact-label">Labor</div>
+              <div class="price-amount">$125<small>/hour</small></div>
+              <div class="price-note">1-hour minimum</div>
+            </div>
+            <div class="price-card">
+              <div class="fact-label">Emergency calls</div>
+              <div class="price-amount">1.5&times;<small> labor</small></div>
+              <div class="price-note">$187.50/hour</div>
+            </div>
+          </div>
+
+          <ul class="price-promise">
+            <li>You'll get an estimate before any work starts.</li>
+            <li>The service call is charged separately from repair costs.</li>
+          </ul>
         </div>
       </div>
     </section>
