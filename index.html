@@ -3,40 +3,75 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-/x7W7R75k8Roq0WaVRQX9blP4OufE5xbAdzklGxsgpw='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; frame-src https://www.google.com; form-action https://formsubmit.co; base-uri 'self'; object-src 'none'; upgrade-insecure-requests" />
+  <script>document.documentElement.classList.add('js');</script>
   <title>Walter's Mobile Solutions | Mobile RV Repair in Nacogdoches, TX</title>
 
-  <!-- Basic SEO -->
-  <meta name="description" content="Walter's Mobile Solutions provides mobile RV repair in Nacogdoches, TX and surrounding areas. Motorhomes, 5th wheels, and travel trailers – electrical, roof, slide-outs, plumbing, brakes, and more. We come to you." />
-  <meta name="keywords" content="mobile rv repair nacogdoches, rv service, 5th wheel repair, travel trailer repair, motorhome repair, east texas rv service" />
+  <!-- Search -->
+  <meta name="description" content="Mobile RV repair in Nacogdoches, Lufkin and East Texas. Roofs, electrical, plumbing and slide-outs for motorhomes, 5th wheels and trailers. We come to you." />
+  <link rel="canonical" href="https://walterssolutions.com/" />
   <meta name="theme-color" content="#020617" />
 
-  <!-- Open Graph -->
+  <!-- Link previews (texts, Facebook, etc.) -->
+  <meta property="og:site_name" content="Walter's Mobile Solutions" />
   <meta property="og:title" content="Walter's Mobile Solutions | Mobile RV Repair" />
   <meta property="og:description" content="Mobile RV repair serving Nacogdoches, TX and surrounding areas. Motorhome and trailer specialist for on-site RV repairs." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://walterssolutions.com" />
-  <meta property="og:image" content="https://walterssolutions.com/Logo2.webp" />
+  <meta property="og:url" content="https://walterssolutions.com/" />
+  <meta property="og:image" content="https://walterssolutions.com/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Walter's Mobile Solutions logo" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png" />
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <!-- Browser icons -->
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <script src="site.js" defer></script>
 
   <!-- LocalBusiness Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "AutomotiveBusiness",
+    "@id": "https://walterssolutions.com/#business",
     "name": "Walter's Mobile Solutions",
-    "image": "https://walterssolutions.com/Logo2.webp",
+    "url": "https://walterssolutions.com/",
+    "logo": "https://walterssolutions.com/Logo2.webp",
+    "image": "https://walterssolutions.com/og-image.jpg",
     "description": "Mobile RV repair specializing in motorhomes, 5th wheels, and travel trailers in Nacogdoches, TX and surrounding areas.",
-    "telephone": "(936)553-6813",
+    "telephone": "+1-936-553-6813",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Nacogdoches",
       "addressRegion": "TX",
       "addressCountry": "US"
     },
-    "url": "https://walterssolutions.com",
+    "areaServed": [
+      { "@type": "City", "name": "Nacogdoches, TX" },
+      { "@type": "City", "name": "Lufkin, TX" },
+      { "@type": "City", "name": "Garrison, TX" },
+      { "@type": "City", "name": "Central Heights, TX" },
+      { "@type": "City", "name": "Douglas, TX" },
+      { "@type": "City", "name": "Woden, TX" },
+      { "@type": "City", "name": "Appleby, TX" }
+    ],
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "16:00",
+        "closes": "21:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Saturday", "Sunday"],
+        "opens": "09:00",
+        "closes": "21:00"
+      }
+    ],
     "priceRange": "$$"
   }
   </script>
@@ -59,7 +94,7 @@
     body {
       margin: 0;
       padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Poppins", sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background:
         radial-gradient(circle at 15% 10%, rgba(56,189,248,0.10), transparent 45%),
         radial-gradient(circle at 85% 70%, rgba(34,197,94,0.08), transparent 45%),
@@ -83,7 +118,7 @@
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       * { animation: none !important; transition: none !important; }
-      .reveal { opacity: 1 !important; transform: none !important; }
+      .js .reveal { opacity: 1 !important; transform: none !important; }
     }
 
     .page-root { min-height: 100vh; position: relative; }
@@ -95,8 +130,17 @@
       padding: 0 16px;
     }
 
-    /* ✅ TEMP HIDE HELPER */
+    /* Sections switched off for now */
     .is-hidden { display: none !important; }
+
+    /* Text for screen readers only */
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+    }
+
+    /* Keep section headings clear of the sticky header when jumping to them */
+    section[id] { scroll-margin-top: 110px; }
 
     /* ==================== HEADER / NAV ==================== */
 
@@ -212,7 +256,7 @@
 
     .hero-inner {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
       align-items: center;
       gap: 18px;
     }
@@ -255,7 +299,7 @@
     .hero-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
 
     .badge {
-      font-size: 0.80rem;
+      font-size: 0.8125rem;
       padding: 7px 11px;
       border-radius: 999px;
       border: 1px solid rgba(148, 163, 184, 0.5);
@@ -283,13 +327,14 @@
       transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
       color: var(--text-main);
       font-family: inherit;
+      text-align: center;
       appearance: none;
       -webkit-appearance: none;
     }
 
     .pill-primary {
       border-color: var(--accent-green);
-      background: linear-gradient(135deg, #16a34a, #15803d);
+      background: linear-gradient(135deg, #15803d, #166534);
       color: #ecfdf5;
     }
 
@@ -305,10 +350,10 @@
       text-transform: uppercase;
       letter-spacing: 0.1em;
       font-weight: 700;
-      font-size: 0.80rem;
+      font-size: 0.8125rem;
     }
 
-    .pill .pill-sub { font-size: 0.80rem; opacity: 0.95; }
+    .pill .pill-sub { font-size: 0.875rem; opacity: 0.95; }
 
     .pill:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(0, 0, 0, 0.6); }
 
@@ -367,15 +412,17 @@
 
     .service-chip-row {
       display: flex;
+      flex-wrap: wrap;
+      gap: 4px 10px;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 6px;
     }
 
     .service-chip {
-      font-size: 0.74rem;
+      font-size: 0.8125rem;
       text-transform: uppercase;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.08em;
       color: var(--accent-blue);
     }
 
@@ -394,12 +441,17 @@
     .service-card.active .service-extra { display: block; }
 
     .service-toggle {
-      font-size: 0.86rem;
+      font-size: 0.875rem;
       color: var(--accent-blue);
       display: inline-flex;
       align-items: center;
       gap: 6px;
       user-select: none;
+      background: none;
+      border: 0;
+      padding: 4px 0;
+      font-family: inherit;
+      cursor: pointer;
     }
     .service-toggle-icon { font-size: 1.05rem; transition: transform 0.15s ease; }
     .service-card.active .service-toggle-icon { transform: rotate(180deg); }
@@ -443,7 +495,7 @@
     .fact-label {
       text-transform: uppercase;
       letter-spacing: 0.14em;
-      font-size: 0.72rem;
+      font-size: 0.8125rem;
       color: var(--text-muted);
       margin-bottom: 6px;
     }
@@ -505,7 +557,7 @@
     }
 
     .step-badge {
-      font-size: 0.78rem;
+      font-size: 0.8125rem;
       text-transform: uppercase;
       letter-spacing: 0.16em;
       color: var(--accent-blue);
@@ -562,6 +614,8 @@
 
     textarea { min-height: 90px; max-height: 240px; }
 
+    .required-note { font-size: 0.875rem; color: var(--text-muted); margin: 4px 0 0; }
+
     .contact-footnote {
       font-size: 0.86rem;
       color: var(--text-muted);
@@ -586,6 +640,13 @@
       right: 16px;
       bottom: 16px;
       z-index: 40;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .js .call-floating:not(.is-visible) {
+      opacity: 0;
+      transform: translateY(16px);
+      pointer-events: none;
     }
 
     .call-floating a {
@@ -594,7 +655,7 @@
       gap: 8px;
       border-radius: 999px;
       padding: 12px 16px;
-      background: linear-gradient(135deg, #16a34a, #15803d);
+      background: linear-gradient(135deg, #15803d, #166534);
       color: #ecfdf5;
       font-size: 0.95rem;
       font-weight: 800;
@@ -612,7 +673,7 @@
     /* ==================== FOOTER ==================== */
 
     footer {
-      padding: 18px 16px 22px;
+      padding: 18px 16px 90px;
       font-size: 0.86rem;
       color: var(--text-muted);
       border-top: 1px solid rgba(15, 23, 42, 0.95);
@@ -630,13 +691,17 @@
 
     /* ==================== REVEAL ==================== */
 
-    .reveal {
+    .js .reveal {
       opacity: 0;
       transform: translateY(22px);
       transition: opacity 0.5s ease-out, transform 0.5s ease-out;
     }
 
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .js .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* Safety net: if site.js never loads, show everything after a moment anyway */
+    @keyframes reveal-fallback { to { opacity: 1; transform: none; } }
+    html.js:not(.reveal-ready) .reveal { animation: reveal-fallback 0.4s ease-out 2.5s forwards; }
 
     /* ==================== RESPONSIVE ==================== */
 
@@ -653,6 +718,11 @@
     }
 
     @media (max-width: 480px) {
+      .nav { padding: 8px 10px; }
+      .nav-left { gap: 10px; }
+      .nav-logo { height: 56px; }
+      .nav-title-main { white-space: normal; font-size: 0.95rem; letter-spacing: 0.05em; }
+      .nav-title-sub { white-space: normal; font-size: 0.8125rem; }
       .hero-title { font-size: 1.8rem; }
       .hero-ctas { flex-direction: column; }
       .contact-form { grid-template-columns: 1fr; }
@@ -668,7 +738,7 @@
       <div class="max-width">
         <nav class="nav">
           <div class="nav-left">
-            <img src="Logo2.webp" alt="Walter's Mobile Solutions Logo" class="nav-logo" />
+            <img src="Logo2.webp" alt="" width="119" height="84" class="nav-logo" />
             <div class="nav-title">
               <div class="nav-title-main">Walter's Mobile Solutions</div>
               <div class="nav-title-sub">Mobile RV Repair • Nacogdoches, TX</div>
@@ -694,6 +764,8 @@
       </div>
     </header>
 
+    <main id="main">
+
     <!-- HERO -->
     <section class="hero">
       <div class="max-width hero-inner">
@@ -718,20 +790,19 @@
               <span class="badge-dot"></span>
               5th Wheels • Travel Trailers • Motorhomes
             </div>
-            <div class="badge">⚡ Electrical • 🔧 Mechanical • 💧 Plumbing • 🏠 Roofs</div>
+            <div class="badge"><span><span aria-hidden="true">⚡</span> Electrical • <span aria-hidden="true">🔧</span> Mechanical • <span aria-hidden="true">💧</span> Plumbing • <span aria-hidden="true">🏠</span> Roofs</span></div>
           </div>
 
           <div class="hero-ctas">
-            <a href="tel:9365536813" class="pill pill-primary">
+            <a href="tel:+19365536813" class="pill pill-primary">
               <span class="pill-label">Call Now</span>
               <span class="pill-sub">Tap to start your repair</span>
             </a>
 
-            <button class="pill pill-accent" type="button"
-              onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+            <a href="#contact" class="pill pill-accent">
               <span class="pill-label">Schedule Online</span>
               <span class="pill-sub">Answer a few quick questions</span>
-            </button>
+            </a>
           </div>
 
           <div class="hero-meta">
@@ -755,101 +826,100 @@
           </div>
 
           <div class="services-grid" id="servicesGrid">
-            <!-- (services unchanged) -->
-            <div class="service-card" role="button" tabindex="0" aria-expanded="false">
+            <div class="service-card">
               <div class="service-chip-row">
                 <div class="service-chip">Roof & Structure</div>
-                <div class="service-toggle">Details <span class="service-toggle-icon">▾</span></div>
+                <button type="button" class="service-toggle" aria-expanded="false" aria-controls="svc-roof">Details<span class="sr-only"> about roof repair</span> <span class="service-toggle-icon" aria-hidden="true">▾</span></button>
               </div>
               <div class="service-title">Roof Repair, Resealing & Leak Tracking</div>
               <div class="service-desc">Soft spots, sagging, or stains inside? The water is tracked to the source and sealed correctly.</div>
-              <div class="service-extra">
+              <div class="service-extra" id="svc-roof">
                 Complete roof inspections, patching and sealing, vent and skylight resealing, awning and trim sealing,
                 and long-term maintenance guidance to prevent future damage.
               </div>
             </div>
 
-            <div class="service-card" role="button" tabindex="0" aria-expanded="false">
+            <div class="service-card">
               <div class="service-chip-row">
                 <div class="service-chip">Electrical</div>
-                <div class="service-toggle">Details <span class="service-toggle-icon">▾</span></div>
+                <button type="button" class="service-toggle" aria-expanded="false" aria-controls="svc-electrical">Details<span class="sr-only"> about electrical diagnostics</span> <span class="service-toggle-icon" aria-hidden="true">▾</span></button>
               </div>
               <div class="service-title">12V & 120V Electrical Diagnostics</div>
               <div class="service-desc">Lights flickering, batteries not charging, or breakers tripping for no reason?</div>
-              <div class="service-extra">
+              <div class="service-extra" id="svc-electrical">
                 House 12V systems, converters, basic inverter troubleshooting, shore power issues, GFCI trips,
                 fuses, wiring faults, and battery health checks – with a focus on safe, clean fixes.
               </div>
             </div>
 
-            <div class="service-card" role="button" tabindex="0" aria-expanded="false">
+            <div class="service-card">
               <div class="service-chip-row">
                 <div class="service-chip">Water & Plumbing</div>
-                <div class="service-toggle">Details <span class="service-toggle-icon">▾</span></div>
+                <button type="button" class="service-toggle" aria-expanded="false" aria-controls="svc-plumbing">Details<span class="sr-only"> about plumbing and water systems</span> <span class="service-toggle-icon" aria-hidden="true">▾</span></button>
               </div>
               <div class="service-title">Plumbing Leaks & Water System Issues</div>
               <div class="service-desc">Leaks under sinks, soft floors, or pumps cycling non-stop are located and corrected.</div>
-              <div class="service-extra">
+              <div class="service-extra" id="svc-plumbing">
                 PEX and fittings, water pump diagnosis, faucets, toilets, tank valves, and winterization and de-winterization support.
               </div>
             </div>
 
-            <div class="service-card" role="button" tabindex="0" aria-expanded="false">
+            <div class="service-card">
               <div class="service-chip-row">
                 <div class="service-chip">Slides & Leveling</div>
-                <div class="service-toggle">Details <span class="service-toggle-icon">▾</span></div>
+                <button type="button" class="service-toggle" aria-expanded="false" aria-controls="svc-slides">Details<span class="sr-only"> about slide-outs and adjustments</span> <span class="service-toggle-icon" aria-hidden="true">▾</span></button>
               </div>
               <div class="service-title">Slide-Out & Structural Adjustments</div>
               <div class="service-desc">Binding slides, bad seals, or that “something doesn’t look right” feeling when extending.</div>
-              <div class="service-extra">
+              <div class="service-extra" id="svc-slides">
                 Visual inspection, seal checks, minor adjustments, lubrication points, and identifying issues before they turn into full failures.
               </div>
             </div>
 
-            <div class="service-card" role="button" tabindex="0" aria-expanded="false">
+            <div class="service-card">
               <div class="service-chip-row">
                 <div class="service-chip">Chassis & Running Gear</div>
-                <div class="service-toggle">Details <span class="service-toggle-icon">▾</span></div>
+                <button type="button" class="service-toggle" aria-expanded="false" aria-controls="svc-chassis">Details<span class="sr-only"> about brakes, hubs and suspension</span> <span class="service-toggle-icon" aria-hidden="true">▾</span></button>
               </div>
               <div class="service-title">Brakes, Hubs & Suspension Checks</div>
               <div class="service-desc">Uneven tire wear, strange noises, or floaty handling on the way to the campsite.</div>
-              <div class="service-extra">
+              <div class="service-extra" id="svc-chassis">
                 Visual inspections of brakes, hubs, bearings, and suspension components, plus recommendations to keep the rig safe on Texas roads.
               </div>
             </div>
 
-            <div class="service-card" role="button" tabindex="0" aria-expanded="false">
+            <div class="service-card">
               <div class="service-chip-row">
                 <div class="service-chip">Interior & Exterior</div>
-                <div class="service-toggle">Details <span class="service-toggle-icon">▾</span></div>
+                <button type="button" class="service-toggle" aria-expanded="false" aria-controls="svc-interior">Details<span class="sr-only"> about cabinetry, doors and cosmetic repairs</span> <span class="service-toggle-icon" aria-hidden="true">▾</span></button>
               </div>
               <div class="service-title">Cabinetry, Doors & Cosmetic Repairs</div>
               <div class="service-desc">Sagging doors, loose trim, warped panels, and general wear are tightened up.</div>
-              <div class="service-extra">
+              <div class="service-extra" id="svc-interior">
                 Cabinet adjustments, trim re-attachment, hardware swaps, and minor wall, floor, and door repairs that make the RV feel solid again.
               </div>
             </div>
 
-            <div class="service-card" role="button" tabindex="0" aria-expanded="false">
+            <div class="service-card">
               <div class="service-chip-row">
                 <div class="service-chip">Battery & Charging</div>
-                <div class="service-toggle">Details <span class="service-toggle-icon">▾</span></div>
+                <button type="button" class="service-toggle" aria-expanded="false" aria-controls="svc-battery">Details<span class="sr-only"> about battery and charging</span> <span class="service-toggle-icon" aria-hidden="true">▾</span></button>
               </div>
               <div class="service-title">Battery & Charging System Health</div>
               <div class="service-desc">Dead batteries after a weekend or confusion about the power setup?</div>
-              <div class="service-extra">
+              <div class="service-extra" id="svc-battery">
                 Battery testing, cable and lug checks, basic charge circuit diagnostics, and plain-English explanations of what the system can handle.
               </div>
             </div>
 
-            <div class="service-card" role="button" tabindex="0" aria-expanded="false">
+            <div class="service-card">
               <div class="service-chip-row">
                 <div class="service-chip">Inspections</div>
-                <div class="service-toggle">Details <span class="service-toggle-icon">▾</span></div>
+                <button type="button" class="service-toggle" aria-expanded="false" aria-controls="svc-inspections">Details<span class="sr-only"> about pre-trip and pre-purchase checks</span> <span class="service-toggle-icon" aria-hidden="true">▾</span></button>
               </div>
               <div class="service-title">Pre-Trip & Pre-Purchase Checks</div>
               <div class="service-desc">Planning a long haul or looking at an RV near Nacogdoches?</div>
-              <div class="service-extra">
+              <div class="service-extra" id="svc-inspections">
                 Visual inspections of critical systems, roof, frame, slides, and water intrusion points. You receive a clear rundown of what’s solid and what needs attention.
               </div>
             </div>
@@ -899,7 +969,7 @@
       </div>
     </section>
 
-    <!-- ABOUT (TEMP HIDDEN) -->
+    <!-- ABOUT (switched off for now) -->
     <section id="about" class="is-hidden">
       <div class="max-width">
         <div class="card reveal">
@@ -947,7 +1017,7 @@
       </div>
     </section>
 
-    <!-- HOW IT WORKS (TEMP HIDDEN) -->
+    <!-- HOW IT WORKS (switched off for now) -->
     <section class="is-hidden">
       <div class="max-width">
         <div class="card reveal">
@@ -991,7 +1061,8 @@
 
           <div class="contact-layout">
             <div>
-              <!-- ✅ FormSubmit (email notifications + customer auto-response) -->
+              <p class="required-note">Fields marked * are required.</p>
+              <!-- Form is delivered by FormSubmit (formsubmit.co) -->
               <form class="contact-form" id="requestForm"
                     action="https://formsubmit.co/148e956664cbbcd9c09a4d2fdd9b21bb"
                     method="POST">
@@ -1007,17 +1078,17 @@
 
                 <div>
                   <label for="name">Name*</label>
-                  <input id="name" name="name" type="text" required />
+                  <input id="name" name="name" type="text" autocomplete="name" required />
                 </div>
 
                 <div>
                   <label for="phone">Phone*</label>
-                  <input id="phone" name="phone" type="tel" required placeholder="(936) 555-1234" />
+                  <input id="phone" name="phone" type="tel" autocomplete="tel" required placeholder="(936) 555-1234" />
                 </div>
 
                 <div>
                   <label for="email">Email (optional)</label>
-                  <input id="email" name="email" type="email" placeholder="your@email.com" />
+                  <input id="email" name="email" type="email" autocomplete="email" placeholder="your@email.com" />
                 </div>
 
                 <div>
@@ -1088,7 +1159,7 @@
             <div class="contact-side">
               <h4>Prefer to talk it through?</h4>
               <p>
-                Call or text: <strong><a href="tel:19365536813">(936) 553-6813</a></strong><br />
+                Call or text: <strong><a href="tel:+19365536813">(936) 553-6813</a></strong><br />
                 If a call can’t be answered right away, it will be returned as soon as it’s safe.
               </p>
 
@@ -1107,9 +1178,11 @@
       </div>
     </section>
 
+    </main>
+
     <!-- FLOATING CALL BUTTON -->
     <div class="call-floating">
-      <a href="tel:19365536813">📞 Call Now</a>
+      <a href="tel:+19365536813"><span aria-hidden="true">📞</span> Call Now</a>
     </div>
 
     <!-- FOOTER -->
@@ -1121,72 +1194,5 @@
     </footer>
   </div>
 
-  <script>
-    const navToggle = document.getElementById("navToggle");
-    const navMobile = document.getElementById("navMobile");
-
-    function setNav(open) {
-      if (!navMobile || !navToggle) return;
-      navMobile.classList.toggle("is-open", open);
-      navToggle.setAttribute("aria-expanded", String(open));
-    }
-
-    if (navToggle && navMobile) {
-      navToggle.addEventListener("click", () => {
-        const open = !navMobile.classList.contains("is-open");
-        setNav(open);
-      });
-
-      navMobile.querySelectorAll("a").forEach(link => {
-        link.addEventListener("click", () => setNav(false));
-      });
-
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") setNav(false);
-      });
-    }
-
-    const revealEls = document.querySelectorAll(".reveal");
-    if ("IntersectionObserver" in window) {
-      const obs = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            obs.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.12 });
-      revealEls.forEach(el => obs.observe(el));
-    } else {
-      revealEls.forEach(el => el.classList.add("visible"));
-    }
-
-    const serviceCards = document.querySelectorAll(".service-card");
-
-    function toggleCard(card) {
-      const isActive = card.classList.contains("active");
-      serviceCards.forEach(c => {
-        c.classList.remove("active");
-        c.setAttribute("aria-expanded", "false");
-      });
-      if (!isActive) {
-        card.classList.add("active");
-        card.setAttribute("aria-expanded", "true");
-      }
-    }
-
-    serviceCards.forEach(card => {
-      card.addEventListener("click", () => toggleCard(card));
-      card.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          toggleCard(card);
-        }
-      });
-    });
-
-    const yearSpan = document.getElementById("year");
-    if (yearSpan) yearSpan.textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>

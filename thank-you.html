@@ -2,9 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'unsafe-inline'; base-uri 'self'; form-action 'none'; object-src 'none'">
   <title>Request Received | Walter's Mobile Solutions</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
   <meta name="theme-color" content="#020617">
+  <link rel="icon" href="/favicon.ico" sizes="any">
 
   <style>
     body {
@@ -53,6 +56,16 @@
       text-decoration: none;
       font-weight: 700;
     }
+
+    .sooner { font-size: 1rem; }
+
+    a.phone {
+      display: inline;
+      padding: 0;
+      background: none;
+      color: #38bdf8;
+      white-space: nowrap;
+    }
   </style>
 </head>
 
@@ -64,7 +77,11 @@
       We’ll review the details and contact you shortly to
       discuss scheduling your RV repair.
     </p>
-    <a href="https://walterssolutions.com">Return to Website</a>
+    <p class="sooner">
+      Need help sooner? Call or text
+      <a class="phone" href="tel:+19365536813">(936) 553-6813</a>
+    </p>
+    <a href="https://walterssolutions.com/">Return to Website</a>
   </div>
 </body>
 </html>
