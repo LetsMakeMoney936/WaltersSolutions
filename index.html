@@ -537,10 +537,13 @@
     .price-row .amt { font-weight: 800; font-size: 1.05rem; color: var(--accent-blue); }
     .price-row .note { grid-column: 1 / -1; font-size: 0.8125rem; color: var(--text-muted); }
 
-    .price-fine {
-      margin: 10px 0 0;
-      font-size: 0.875rem;
-      color: var(--text-muted);
+    .price-pills {
+      list-style: none;
+      margin: 12px 0 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 10px;
     }
 
     @media (min-width: 761px) {
@@ -991,7 +994,6 @@
             <div class="section-header">
               <h2 class="section-eyebrow">Pricing</h2>
             </div>
-            <div class="badge"><span class="badge-dot"></span>No mileage charges in the service area</div>
           </div>
 
           <dl class="price-list">
@@ -1012,7 +1014,11 @@
             </div>
           </dl>
 
-          <p class="price-fine">You'll get an estimate before any work starts. The service call is charged separately from repair costs.</p>
+          <ul class="price-pills">
+            <li class="badge"><span class="badge-dot"></span>No mileage charges in the service area</li>
+            <li class="badge"><span class="badge-dot"></span>Estimate before any work starts</li>
+            <li class="badge"><span class="badge-dot"></span>Service call billed separately from repairs</li>
+          </ul>
         </div>
       </div>
     </section>
