@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-/x7W7R75k8Roq0WaVRQX9blP4OufE5xbAdzklGxsgpw='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; frame-src https://www.google.com; form-action https://formsubmit.co; base-uri 'self'; object-src 'none'; upgrade-insecure-requests" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-/x7W7R75k8Roq0WaVRQX9blP4OufE5xbAdzklGxsgpw='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; form-action https://formsubmit.co; base-uri 'self'; object-src 'none'; upgrade-insecure-requests" />
   <script>document.documentElement.classList.add('js');</script>
   <title>Walter's Mobile Solutions | Mobile RV Repair in Nacogdoches, TX</title>
 
@@ -52,11 +52,16 @@
     "areaServed": [
       { "@type": "City", "name": "Nacogdoches, TX" },
       { "@type": "City", "name": "Lufkin, TX" },
-      { "@type": "City", "name": "Garrison, TX" },
-      { "@type": "City", "name": "Central Heights, TX" },
-      { "@type": "City", "name": "Douglas, TX" },
-      { "@type": "City", "name": "Woden, TX" },
-      { "@type": "City", "name": "Appleby, TX" }
+      { "@type": "City", "name": "Center, TX" },
+      { "@type": "City", "name": "San Augustine, TX" },
+      { "@type": "City", "name": "Rusk, TX" },
+      { "@type": "City", "name": "Jacksonville, TX" },
+      { "@type": "City", "name": "Henderson, TX" },
+      { "@type": "City", "name": "Carthage, TX" },
+      { "@type": "City", "name": "Crockett, TX" },
+      { "@type": "City", "name": "Hemphill, TX" },
+      { "@type": "City", "name": "Jasper, TX" },
+      { "@type": "City", "name": "Livingston, TX" }
     ],
     "openingHoursSpecification": [
       {
@@ -458,64 +463,35 @@
 
     /* ==================== SERVICE AREA ==================== */
 
-    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 14px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 12px; }
 
     .chip {
-      font-size: 0.84rem;
-      padding: 7px 11px;
+      font-size: 0.8125rem;
+      padding: 5px 10px;
       border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
+      border: 1px solid rgba(148, 163, 184, 0.45);
       background: rgba(15, 23, 42, 0.92);
       color: var(--text-main);
     }
 
-    .map-frame {
-      width: 100%;
-      border-radius: 14px;
-      border: none;
-      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.8);
-      margin-top: 2px;
+    .area-map-wrap { max-width: 460px; margin: 4px auto 14px; }
+
+    /* Phones: the map already shows the towns, so skip the chip list */
+    @media (max-width: 760px) {
+      .chips { display: none; }
     }
+    .area-map { display: block; width: 100%; height: auto; }
+    .area-map-note { text-align: center; font-size: 0.8125rem; color: var(--text-muted); margin-top: 2px; }
 
-    .service-facts {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 10px;
-      margin-top: 14px;
-    }
+    /* ==================== LABEL-ONLY SECTION HEADINGS ==================== */
 
-    .fact {
-      border-radius: 12px;
-      padding: 10px 10px;
-      background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.95), #020617);
-      border: 1px solid rgba(51, 65, 85, 0.95);
-      font-size: 0.88rem;
-    }
+    .label-head { margin-bottom: 12px; }
+    .label-head .section-header { margin-bottom: 0; }
+    .label-head h2.section-eyebrow { margin: 0; font-weight: 400; }
 
-    .fact-label {
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-size: 0.8125rem;
-      color: var(--text-muted);
-      margin-bottom: 6px;
-    }
+    /* ==================== INFO LISTS (pricing, about, service area) ==================== */
 
-    .fact-value { font-weight: 700; }
-
-    /* ==================== PRICING ==================== */
-
-    .pricing-head {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px 16px;
-      margin-bottom: 12px;
-    }
-    .pricing-head .section-header { margin-bottom: 0; }
-    .pricing-head h2.section-eyebrow { margin: 0; font-weight: 400; }
-
-    .price-list {
+    .info-list {
       margin: 0;
       display: grid;
       grid-template-columns: 1fr;
@@ -523,7 +499,7 @@
       border-radius: 14px;
       overflow: hidden;
     }
-    .price-row {
+    .info-row {
       display: grid;
       grid-template-columns: 1fr auto;
       align-items: baseline;
@@ -531,11 +507,11 @@
       padding: 11px 14px;
       background: rgba(2, 6, 23, 0.55);
     }
-    .price-row + .price-row { border-top: 1px solid rgba(51, 65, 85, 0.7); }
-    .price-row dt { font-size: 0.95rem; color: var(--text-main); }
-    .price-row dd { margin: 0; text-align: right; }
-    .price-row .amt { font-weight: 800; font-size: 1.05rem; color: var(--accent-blue); }
-    .price-row .note { grid-column: 1 / -1; font-size: 0.8125rem; color: var(--text-muted); }
+    .info-row + .info-row { border-top: 1px solid rgba(51, 65, 85, 0.7); }
+    .info-row dt { font-size: 0.95rem; color: var(--text-main); }
+    .info-row dd { margin: 0; text-align: right; }
+    .info-row .amt { font-weight: 800; font-size: 1.05rem; color: var(--accent-blue); }
+    .info-row .note { grid-column: 1 / -1; font-size: 0.8125rem; color: var(--text-muted); }
 
     .price-pills {
       list-style: none;
@@ -546,78 +522,57 @@
       gap: 8px 10px;
     }
 
-    @media (min-width: 761px) {
-      .price-list { grid-template-columns: repeat(3, 1fr); }
-      .price-row { grid-template-columns: 1fr; text-align: left; padding: 12px 16px; }
-      .price-row dd { text-align: left; }
-      .price-row + .price-row { border-top: 0; border-left: 1px solid rgba(51, 65, 85, 0.7); }
-      .price-row .amt { font-size: 1.2rem; }
-    }
-
     /* ==================== ABOUT ==================== */
 
-    .about-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
-      gap: 20px;
-    }
+    .about-lead { font-size: 0.98rem; color: var(--text-muted); margin: 0 0 14px; max-width: 760px; }
 
-    .about-body { font-size: 0.98rem; color: var(--text-muted); }
-    .about-body p { margin: 0 0 10px; }
+    /* ==================== HOW IT WORKS ==================== */
 
-    .about-list {
-      margin: 8px 0 10px 18px;
+    .steps-list {
+      list-style: none;
+      margin: 0;
       padding: 0;
-      font-size: 0.94rem;
-      color: var(--text-muted);
-    }
-    .about-list li { margin-bottom: 6px; }
-
-    .about-highlights {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 10px;
-    }
-
-    .highlight-card {
-      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.98), #020617);
+      border: 1px solid rgba(51, 65, 85, 0.95);
       border-radius: 14px;
-      border: 1px solid rgba(51, 65, 85, 0.9);
-      padding: 12px 12px 10px;
-      font-size: 0.9rem;
-      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.8);
+      overflow: hidden;
     }
-
-    .highlight-title { font-weight: 800; margin-bottom: 4px; }
-    .highlight-sub { color: var(--text-muted); font-size: 0.86rem; }
-
-    /* ==================== PROCESS ==================== */
-
-    .process-steps {
+    .steps-list li {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 12px;
-      margin-top: 10px;
+      grid-template-columns: auto 1fr;
+      gap: 2px 12px;
+      align-items: start;
+      padding: 12px 14px;
+      background: rgba(2, 6, 23, 0.55);
     }
-
-    .step {
-      border-radius: 14px;
-      border: 1px solid rgba(51, 65, 85, 0.9);
-      background: rgba(15, 23, 42, 0.96);
-      padding: 12px 12px 10px;
-      font-size: 0.92rem;
+    .steps-list li + li { border-top: 1px solid rgba(51, 65, 85, 0.7); }
+    .step-num {
+      grid-row: span 2;
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.875rem;
+      color: #020617;
+      background: var(--accent-blue);
     }
+    .step-title { font-weight: 700; font-size: 0.95rem; color: var(--text-main); }
+    .step-body { font-size: 0.875rem; color: var(--text-muted); }
 
-    .step-badge {
-      font-size: 0.8125rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--accent-blue);
-      margin-bottom: 6px;
+    @media (min-width: 761px) {
+      .info-list { grid-template-columns: repeat(3, 1fr); }
+      .info-row { grid-template-columns: 1fr; padding: 12px 16px; }
+      .info-row dd { text-align: left; }
+      .info-row + .info-row { border-top: 0; border-left: 1px solid rgba(51, 65, 85, 0.7); }
+      .info-row .amt { font-size: 1.2rem; }
+
+      .steps-list { grid-template-columns: repeat(3, 1fr); }
+      .steps-list li + li { border-top: 0; border-left: 1px solid rgba(51, 65, 85, 0.7); }
     }
-
-    .step-title { font-weight: 800; margin-bottom: 6px; }
-    .step-body { color: var(--text-muted); font-size: 0.9rem; }
 
     /* ==================== CONTACT ==================== */
 
@@ -758,7 +713,7 @@
     /* ==================== RESPONSIVE ==================== */
 
     @media (max-width: 900px) {
-      .about-layout, .contact-layout { grid-template-columns: 1fr; }
+      .contact-layout { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 760px) {
@@ -776,7 +731,10 @@
       .nav-title-main { white-space: normal; font-size: 0.95rem; letter-spacing: 0.05em; }
       .nav-title-sub { white-space: normal; font-size: 0.8125rem; }
       .hero-title { font-size: 1.8rem; }
-      .hero-ctas { flex-direction: column; }
+      .hero-ctas { display: grid; grid-template-columns: 1fr 1fr; }
+      .hero-ctas .pill { flex-direction: column; justify-content: center; gap: 2px; text-align: center; }
+      .hero-ctas .pill-primary .pill-sub, .hero-ctas .pill-text .pill-sub { display: none; }
+      .hero-ctas .pill-accent { grid-column: 1 / -1; }
       .contact-form { grid-template-columns: 1fr; }
     }
   </style>
@@ -801,6 +759,7 @@
             <div class="nav-links">
               <a href="#services">Services</a>
               <a href="#pricing">Pricing</a>
+              <a href="#about">About</a>
               <a href="#service-area">Service Area</a>
               <a href="#contact">Schedule</a>
             </div>
@@ -812,6 +771,7 @@
         <div class="nav-links-mobile" id="navMobile">
           <a href="#services">Services</a>
           <a href="#pricing">Pricing</a>
+          <a href="#about">About</a>
           <a href="#service-area">Service Area</a>
           <a href="#contact">Schedule</a>
         </div>
@@ -851,6 +811,11 @@
             <a href="tel:+19365536813" class="pill pill-primary">
               <span class="pill-label">Call Now</span>
               <span class="pill-sub">Tap to start your repair</span>
+            </a>
+
+            <a href="sms:+19365536813" class="pill pill-text">
+              <span class="pill-label">Text Me</span>
+              <span class="pill-sub">Send a photo of the problem</span>
             </a>
 
             <a href="#contact" class="pill pill-accent">
@@ -990,24 +955,24 @@
     <section id="pricing">
       <div class="max-width">
         <div class="card reveal">
-          <div class="pricing-head">
+          <div class="label-head">
             <div class="section-header">
               <h2 class="section-eyebrow">Pricing</h2>
             </div>
           </div>
 
-          <dl class="price-list">
-            <div class="price-row">
+          <dl class="info-list">
+            <div class="info-row">
               <dt>Service call</dt>
               <dd class="amt">$75</dd>
               <dd class="note">Anywhere within 100 miles of Nacogdoches</dd>
             </div>
-            <div class="price-row">
+            <div class="info-row">
               <dt>Labor</dt>
               <dd class="amt">$125/hr</dd>
               <dd class="note">1-hour minimum</dd>
             </div>
-            <div class="price-row">
+            <div class="info-row">
               <dt>Emergency calls</dt>
               <dd class="amt">$187.50/hr</dd>
               <dd class="note">1.5&times; the labor rate</dd>
@@ -1023,6 +988,74 @@
       </div>
     </section>
 
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="max-width">
+        <div class="card reveal">
+          <div class="section-header">
+            <div class="section-eyebrow">About</div>
+            <h2 class="section-title">Built in the RV Capital, Serving East Texas</h2>
+          </div>
+
+          <p class="about-lead">
+            Locally owned and operated in <strong>Nacogdoches</strong>. The owner spent years in
+            <strong>Elkhart, Indiana</strong>, the RV capital, working for <strong>Lippert</strong> and
+            <strong>Forest River</strong>. That factory know-how now comes straight to your driveway,
+            storage lot or campsite.
+          </p>
+
+          <dl class="info-list">
+            <div class="info-row">
+              <dt>Experience</dt>
+              <dd class="amt">13+ years</dd>
+              <dd class="note">Hands-on in the RV industry</dd>
+            </div>
+            <div class="info-row">
+              <dt>Background</dt>
+              <dd class="amt">Factory</dd>
+              <dd class="note">Lippert &amp; Forest River</dd>
+            </div>
+            <div class="info-row">
+              <dt>Approach</dt>
+              <dd class="amt">Built to last</dd>
+              <dd class="note">Long-term fixes, not quick patches</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how-it-works">
+      <div class="max-width">
+        <div class="card reveal">
+          <div class="label-head">
+            <div class="section-header">
+              <h2 class="section-eyebrow">How It Works</h2>
+            </div>
+          </div>
+
+          <ol class="steps-list">
+            <li>
+              <span class="step-num" aria-hidden="true">1</span>
+              <div class="step-title">Tell me what’s going on</div>
+              <div class="step-body">Call, text, or use the form below. A photo of the problem helps.</div>
+            </li>
+            <li>
+              <span class="step-num" aria-hidden="true">2</span>
+              <div class="step-title">Get an estimate &amp; pick a time</div>
+              <div class="step-body">You’ll get an estimate before any work starts, then we set a time that works for you.</div>
+            </li>
+            <li>
+              <span class="step-num" aria-hidden="true">3</span>
+              <div class="step-title">Onsite repair &amp; walkthrough</div>
+              <div class="step-body">The repair is done at your site, then you get a walkthrough of what was fixed.</div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
     <!-- SERVICE AREA -->
     <section id="service-area">
       <div class="max-width">
@@ -1031,109 +1064,49 @@
             <div class="section-eyebrow">Service Area</div>
             <h2 class="section-title">Nacogdoches-Based, East Texas Focused</h2>
             <p class="section-subtitle">
-              Walter's Mobile Solutions is based in <strong>Nacogdoches, Texas</strong> and typically serves within about <strong>100 miles</strong>.
-              If you’re just outside that radius, reach out.
+              Based in <strong>Nacogdoches</strong> and serving about <strong>100 miles</strong> around it.
+              Just outside that? Reach out.
             </p>
           </div>
 
           <div class="chips">
             <div class="chip">Nacogdoches</div>
             <div class="chip">Lufkin</div>
-            <div class="chip">Garrison</div>
-            <div class="chip">Central Heights</div>
-            <div class="chip">Douglas</div>
-            <div class="chip">Woden</div>
-            <div class="chip">Appleby</div>
-            <div class="chip">Surrounding campgrounds &amp; storage lots</div>
+            <div class="chip">Center</div>
+            <div class="chip">San Augustine</div>
+            <div class="chip">Rusk</div>
+            <div class="chip">Jacksonville</div>
+            <div class="chip">Henderson</div>
+            <div class="chip">Carthage</div>
+            <div class="chip">Crockett</div>
+            <div class="chip">Sam Rayburn</div>
+            <div class="chip">Toledo Bend</div>
+            <div class="chip">Lake Livingston</div>
+            <div class="chip">Campgrounds &amp; storage lots</div>
           </div>
 
-          <iframe class="map-frame"
-            src="https://www.google.com/maps?q=Nacogdoches,TX&output=embed"
-            height="260" loading="lazy" title="Service Area Map - Nacogdoches, TX"></iframe>
+          <figure class="area-map-wrap">
+            <svg class="area-map" viewBox="0 0 400 372" role="img" aria-label="Map of the service area: Nacogdoches at the center, with Lufkin, Center, San Augustine, Rusk, Jacksonville, Henderson, Carthage, Crockett, Sam Rayburn, Toledo Bend and Lake Livingston around it"><defs><radialGradient id="areaGlow" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#38bdf8" stop-opacity="0.16"/><stop offset="100%" stop-color="#38bdf8" stop-opacity="0.03"/></radialGradient></defs><circle cx="200" cy="178" r="175" fill="url(#areaGlow)" stroke="#38bdf8" stroke-opacity="0.45" stroke-width="1.25" stroke-dasharray="5 5"/><ellipse cx="270.4" cy="254.9" rx="46.3" ry="11.6" transform="rotate(38 270.4 254.9)" fill="#38bdf8" fill-opacity="0.32"/><text x="268.4" y="286.9" text-anchor="middle" font-size="14" font-style="italic" fill="#7dd3fc">Sam Rayburn</text><ellipse cx="335.3" cy="187.5" rx="74.5" ry="9.0" transform="rotate(75 335.3 187.5)" fill="#38bdf8" fill-opacity="0.32"/><text x="337.3" y="103.5" text-anchor="middle" font-size="14" font-style="italic" fill="#7dd3fc">Toledo Bend</text><ellipse cx="117.8" cy="320.5" rx="38.5" ry="7.7" transform="rotate(45 117.8 320.5)" fill="#38bdf8" fill-opacity="0.32"/><text x="147.8" y="338.5" text-anchor="start" font-size="14" font-style="italic" fill="#7dd3fc">Lake Livingston</text><circle cx="189.0" cy="225.0" r="3.5" fill="#cbd5e1"/><text x="197.0" y="229.0" text-anchor="start" font-size="15" fill="#cbd5e1">Lufkin</text><circle cx="271.8" cy="144.0" r="3.5" fill="#cbd5e1"/><text x="279.8" y="148.0" text-anchor="start" font-size="15" fill="#cbd5e1">Center</text><circle cx="283.1" cy="191.1" r="3.5" fill="#cbd5e1"/><text x="277.1" y="208.1" text-anchor="end" font-size="15" fill="#cbd5e1">San Augustine</text><circle cx="125.4" cy="143.9" r="3.5" fill="#cbd5e1"/><text x="117.4" y="147.9" text-anchor="end" font-size="15" fill="#cbd5e1">Rusk</text><circle cx="107.2" cy="114.1" r="3.5" fill="#cbd5e1"/><text x="99.2" y="118.1" text-anchor="end" font-size="15" fill="#cbd5e1">Jacksonville</text><circle cx="178.3" cy="80.6" r="3.5" fill="#cbd5e1"/><text x="170.3" y="84.6" text-anchor="end" font-size="15" fill="#cbd5e1">Henderson</text><circle cx="248.0" cy="79.9" r="3.5" fill="#cbd5e1"/><text x="256.0" y="83.9" text-anchor="start" font-size="15" fill="#cbd5e1">Carthage</text><circle cx="79.0" cy="228.7" r="3.5" fill="#cbd5e1"/><text x="87.0" y="232.7" text-anchor="start" font-size="15" fill="#cbd5e1">Crockett</text><circle cx="200" cy="178" r="11" fill="#22c55e" fill-opacity="0.22"/><circle cx="200" cy="178" r="5.5" fill="#22c55e" stroke="#020617" stroke-width="1.5"/><text x="200" y="161" text-anchor="middle" font-size="17" font-weight="700" fill="#f9fafb">Nacogdoches</text></svg>
+            <figcaption class="area-map-note">Approximate area · about 100 road miles from Nacogdoches</figcaption>
+          </figure>
 
-          <div class="service-facts">
-            <div class="fact"><div class="fact-label">Radius</div><div class="fact-value">Up to ~100 miles</div></div>
-            <div class="fact"><div class="fact-label">Service Type</div><div class="fact-value">Mobile – onsite</div></div>
-            <div class="fact"><div class="fact-label">Rig Types</div><div class="fact-value">5th, travel, motorhome</div></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT (switched off for now) -->
-    <section id="about" class="is-hidden">
-      <div class="max-width">
-        <div class="card reveal">
-          <div class="section-header">
-            <div class="section-eyebrow">About</div>
-            <h2 class="section-title">Built in the RV Capital, Serving East Texas</h2>
-          </div>
-
-          <div class="about-layout">
-            <div class="about-body">
-              <p>
-                Walter's Mobile Solutions is locally owned and operated in <strong>Nacogdoches, Texas</strong>.
-                The owner grew up around RVs and spent years in <strong>Elkhart, Indiana</strong> – working for
-                <strong>Lippert</strong> and <strong>Forest River</strong>.
-              </p>
-              <p>
-                From frames and axles to roofs and final finishes, that factory-level understanding now supports RV owners directly at their homes, storage lots, and campsites across East Texas.
-              </p>
-              <ul class="about-list">
-                <li>13+ years of hands-on RV industry experience</li>
-                <li>Focus on long-term, not just “quick patch” repairs</li>
-                <li>Clear explanations so you understand what failed and why</li>
-              </ul>
-              <p>
-                The goal is simple: help you feel confident towing, camped, or full-timing – without dealership backlogs.
-              </p>
+          <dl class="info-list">
+            <div class="info-row">
+              <dt>Radius</dt>
+              <dd class="amt">Up to 100 mi</dd>
+              <dd class="note">One flat service call</dd>
             </div>
-
-            <div class="about-highlights">
-              <div class="highlight-card">
-                <div class="highlight-title">Factory Experience</div>
-                <div class="highlight-sub">Lippert &amp; Forest River background – frames, walls, roofs, and details that keep water out.</div>
-              </div>
-              <div class="highlight-card">
-                <div class="highlight-title">Mobile &amp; Flexible</div>
-                <div class="highlight-sub">Work is done at your site. No need to haul the rig to a shop for everything.</div>
-              </div>
-              <div class="highlight-card">
-                <div class="highlight-title">Straightforward Communication</div>
-                <div class="highlight-sub">You’ll know what was done, why it was needed, and what to watch for next.</div>
-              </div>
+            <div class="info-row">
+              <dt>Service</dt>
+              <dd class="amt">Onsite</dd>
+              <dd class="note">Home, storage lot or campground</dd>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- HOW IT WORKS (switched off for now) -->
-    <section class="is-hidden">
-      <div class="max-width">
-        <div class="card reveal">
-          <div class="section-header">
-            <div class="section-eyebrow">How It Works</div>
-            <h2 class="section-title">Simple, Straightforward Process</h2>
-          </div>
-
-          <div class="process-steps">
-            <div class="step">
-              <div class="step-badge">Step 1</div>
-              <div class="step-title">Share what’s going on</div>
-              <div class="step-body">Call or use the form below. Helpful details speed up diagnosis.</div>
+            <div class="info-row">
+              <dt>RV types</dt>
+              <dd class="amt">All types</dd>
+              <dd class="note">5th wheels, travel trailers, motorhomes, toy haulers</dd>
             </div>
-            <div class="step">
-              <div class="step-badge">Step 2</div>
-              <div class="step-title">Confirm time &amp; location</div>
-              <div class="step-body">We confirm your location, access, and the best time to arrive.</div>
-            </div>
-            <div class="step">
-              <div class="step-badge">Step 3</div>
-              <div class="step-title">Onsite repair &amp; walkthrough</div>
-              <div class="step-body">Repair is completed onsite, then we walk through what was done.</div>
-            </div>
-          </div>
+          </dl>
         </div>
       </div>
     </section>
