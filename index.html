@@ -570,6 +570,10 @@
       .info-row + .info-row { border-top: 0; border-left: 1px solid rgba(51, 65, 85, 0.7); }
       .info-row .amt { font-size: 1.2rem; }
 
+      .info-list-4 { grid-template-columns: repeat(2, 1fr); }
+      .info-list-4 .info-row:nth-child(3) { border-left: 0; border-top: 1px solid rgba(51, 65, 85, 0.7); }
+      .info-list-4 .info-row:nth-child(4) { border-top: 1px solid rgba(51, 65, 85, 0.7); }
+
       .steps-list { grid-template-columns: repeat(3, 1fr); }
       .steps-list li + li { border-top: 0; border-left: 1px solid rgba(51, 65, 85, 0.7); }
     }
@@ -1005,7 +1009,7 @@
             storage lot or campsite.
           </p>
 
-          <dl class="info-list">
+          <dl class="info-list info-list-4">
             <div class="info-row">
               <dt>Experience</dt>
               <dd class="amt">13+ years</dd>
@@ -1015,6 +1019,11 @@
               <dt>Background</dt>
               <dd class="amt">Factory</dd>
               <dd class="note">Lippert &amp; Forest River</dd>
+            </div>
+            <div class="info-row">
+              <dt>Certified</dt>
+              <dd class="amt">Cummins</dd>
+              <dd class="note">RV Dealer Service &ndash; Repair qualification</dd>
             </div>
             <div class="info-row">
               <dt>Warranty</dt>
