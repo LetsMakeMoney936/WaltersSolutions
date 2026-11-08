@@ -396,6 +396,9 @@
       gap: 14px;
       margin-top: 10px;
     }
+    @media (min-width: 1000px) {
+      .services-grid { grid-template-columns: repeat(3, 1fr); }
+    }
 
     .service-card {
       background: radial-gradient(circle at top, #020617, #020617 20%, #020617 100%);
@@ -937,6 +940,18 @@
 
             <div class="service-card">
               <div class="service-chip-row">
+                <div class="service-chip">Generators</div>
+                <button type="button" class="service-toggle" aria-expanded="false" aria-controls="svc-generators">Details<span class="sr-only"> about generator service</span> <span class="service-toggle-icon" aria-hidden="true">▾</span></button>
+              </div>
+              <div class="service-title">Onan Generator Service &amp; Repair</div>
+              <div class="service-desc">Generator won’t start, surges, or shuts off under load?</div>
+              <div class="service-extra" id="svc-generators">
+                Cummins-qualified service for Onan RV generators: no-start and running problems, routine maintenance, and checks before a big trip.
+              </div>
+            </div>
+
+            <div class="service-card">
+              <div class="service-chip-row">
                 <div class="service-chip">Inspections</div>
                 <button type="button" class="service-toggle" aria-expanded="false" aria-controls="svc-inspections">Details<span class="sr-only"> about pre-trip and pre-purchase checks</span> <span class="service-toggle-icon" aria-hidden="true">▾</span></button>
               </div>
@@ -979,7 +994,7 @@
             <div class="info-row">
               <dt>Emergency calls</dt>
               <dd class="amt">$187.50/hr</dd>
-              <dd class="note">1.5&times; the labor rate</dd>
+              <dd class="note">1.5&times; the labor rate, when available</dd>
             </div>
           </dl>
 
@@ -1191,6 +1206,7 @@
                     <option value="plumbing">Plumbing / Water System</option>
                     <option value="slide">Slide-Out / Leveling</option>
                     <option value="brakes">Brakes / Suspension / Running Gear</option>
+                    <option value="generator">Generator</option>
                     <option value="interior">Interior / Cosmetic</option>
                     <option value="inspection">Pre-Trip / Pre-Purchase Check</option>
                     <option value="other">Something Else</option>
